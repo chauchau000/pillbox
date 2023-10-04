@@ -1,6 +1,6 @@
 # pillbox
 
-Here at pillbox, our mission is to help you keep track of your medication, providers, and appointments by organizing all your medications into one centralized area. 
+Here at pillbox, our mission is to help you keep track of your medications, providers, and appointments by organizing all your medications into one centralized area. 
 
 ## Description
 
