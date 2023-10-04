@@ -11,28 +11,28 @@ The app will also keep track of all the user's appointments in a calendar and se
 
 ## Features
 
-:star2:	 Users
-   :star:  Users can sign up, log in, and log out
-   :star:  Users can use a demo log in to try the site
-   :star:  Logged in users are directed to their profile page which displays their medication list and medication schedule
-   :star:  Logged out users are directed to the login page.
+:star2:	 Users  <br />
+   :star:  Users can sign up, log in, and log out  <br />
+   :star:  Users can use a demo log in to try the site  <br />
+   :star:  Logged in users are directed to their profile page which displays their medication list and medication schedule  <br />
+   :star:  Logged out users are directed to the login page.  <br />
 
-:pill:	 Medications
-   :star:  Users are able to add medications they are taking
-   :star:  Users are able to edit medications they are taking
-   :star:  Users are able to delete medications when they are no longer taking them
-   :star:  Users are able see medications they are taking
+:pill:	 Medications  <br />
+   :star:  Users are able to add medications they are taking  <br />
+   :star:  Users are able to edit medications they are taking  <br />
+   :star:  Users are able to delete medications when they are no longer taking them  <br />
+   :star:  Users are able see medications they are taking  <br />
 
-:drop_of_blood:		 Glucose Log
-   :star:  Users are able to enter glucose readings (glucose level, fasting?, date, time, notes)
-   :star:  Users are able to edit their glucose readings
-   :star:  Users are able to delete their glucose readings
-   :star:  Users are able to see their glucose readings (also in a graph).
+:drop_of_blood:		 Glucose Log  <br />
+   :star:  Users are able to enter glucose readings (glucose level, fasting?, date, time, notes)  <br />
+   :star:  Users are able to edit their glucose readings  <br /> 
+   :star:  Users are able to delete their glucose readings  <br />
+   :star:  Users are able to see their glucose readings (also in a graph).  <br />
 
-:stethoscope:		 Appointments
-   :star:  Users are able to enter appointments (provider, date, time, address, notes)
-   :star:  Users are able to delete appointments
-   :star:  Users are able to edit appointments
+:stethoscope:		 Appointments  <br />
+   :star:  Users are able to enter appointments (provider, date, time, address, notes)  <br />
+   :star:  Users are able to delete appointments  <br /> 
+   :star:  Users are able to edit appointments  <br />
 
 
 ##Database Schema
