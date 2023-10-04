@@ -12,7 +12,7 @@ The app will also keep track of all the user's appointments in a calendar and se
 ## Features
 
 :star2:	 Users  <br />
->   :star:  Users can sign up, log in, and log out  <br />
+>:star:  Users can sign up, log in, and log out  <br />
 >   :star:  Users can use a demo log in to try the site  <br />
 >   :star:  Logged in users are directed to their profile page which displays their medication list and medication schedule  <br />
 >   :star:  Logged out users are directed to the login page.  <br />
@@ -35,6 +35,6 @@ The app will also keep track of all the user's appointments in a calendar and se
 .   :star:  Users are able to edit appointments  <br />
 
 
-##Database Schema
+## Database Schema
 
 [pillbox database schema](https://dbdiagram.io/d/pillbox-651ce67affbf5169f0fc52b1)
