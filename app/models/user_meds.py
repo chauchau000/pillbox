@@ -17,7 +17,7 @@ class User_Med(db.Model):
     active = db.Column(db.Boolean, nullable=False)
     
     user = relationship("User", back_populates='user_meds')
-    med = relationship("Med", back_populates='users')
+    med = relationship("Med")
     provider = relationship("Provider")
 
     def to_dict(self):

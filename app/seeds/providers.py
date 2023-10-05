@@ -5,15 +5,15 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_providers():
     batman = Provider(
-        name='Bruce Wayne', address="224 Park Drive Gotham City, California", specialty="Cardiology", phone='1234567890', fax='0987654321', patients=[1, 3])
+        name='Bruce Wayne', address="224 Park Drive Gotham City, California", specialty="Cardiology", phone='1234567890', fax='0987654321')
     superman = Provider(
-        name='Clark Kent', address="344 Clinton Street, Apartment 3D Metropolis, New York", specialty="Primary Care", phone='1234567890', fax='0987654321', patients=[1, 2])
+        name='Clark Kent', address="344 Clinton Street, Apartment 3D Metropolis, New York", specialty="Primary Care", phone='1234567890', fax='0987654321')
     wonder_woman = Provider(
-        name='Diana Prince', address="2600 Virginia Ave Washington DC", specialty="Nephrology", phone='1234567890', fax='0987654321', patients=[2])
+        name='Diana Prince', address="2600 Virginia Ave Washington DC", specialty="Nephrology", phone='1234567890', fax='0987654321')
     ironman = Provider(
-        name='Tony Stark', address="10880 Malibu Point Malibu, California", specialty="Primary Care", phone='1234567890', fax='0987654321', patients=[3])
+        name='Tony Stark', address="10880 Malibu Point Malibu, California", specialty="Primary Care", phone='1234567890', fax='0987654321')
     hulk = Provider(
-        name='Bruce Banner', address="123 Hollywood Way Hollywood, California", specialty="Psychiatry", phone='1234567890', fax='0987654321', patients=[1])
+        name='Bruce Banner', address="123 Hollywood Way Hollywood, California", specialty="Psychiatry", phone='1234567890', fax='0987654321')
 
     db.session.add(batman)
     db.session.add(superman)
