@@ -39,5 +39,5 @@ The app will also keep track of all the user's appointments in a calendar and se
 
 [pillbox database schema](https://dbdiagram.io/d/pillbox-651ce67affbf5169f0fc52b1)
 
-![pillbox](https://github.com/chauchau000/pillbox/assets/117422078/ff8e1bd4-f210-4405-af5c-4d8242b3f012)
+![pillbox (1)](https://github.com/chauchau000/pillbox/assets/117422078/2d1193d6-9871-4151-9bfc-a8494255f3cb)
 
