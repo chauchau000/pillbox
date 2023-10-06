@@ -1,7 +1,6 @@
 from flask.cli import AppGroup
-from .users import seed_users, undo_users
+from .users import seed_users_and_providers, undo_users_and_providers
 from .meds import seed_meds, undo_meds
-from .providers import seed_providers, undo_providers
 from .user_meds import seed_user_meds, undo_user_meds
 from .appointments import seed_appointments, undo_appointments
 from .glucose import seed_glucose, undo_glucose
@@ -21,14 +20,12 @@ def seed():
         # command, which will  truncate all tables prefixed with 
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
-        udno_glucose()
+        undo_glucose()
         undo_appointments()
         undo_user_meds()
-        undo_providers()
         undo_meds()
-        undo_users()
-    seed_users()
-    seed_providers()
+        undo_users_and_providers()
+    seed_users_and_providers()
     seed_meds()
     seed_user_meds()
     seed_appointments()
@@ -39,10 +36,9 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    udno_glucose()
+    undo_glucose()
     undo_appointments()
     undo_user_meds()
-    undo_providers()
     undo_meds()
-    undo_users()
+    undo_users_and_providers()
     # Add other undo functions here
