@@ -35,25 +35,31 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
+        meds = [med.to_dict() for med in self.user_meds]
+        providers = [provider.to_dict() for provider in self.providers]
+        appointments = [appointment.to_dict() for appointment in self.appointments]
+        glucose = [reading.to_dict() for reading in self.glucose_readings]
+
+
         return {
             'id': self.id,
             'first_name': self.first_name,
             'last_name': self.last_name,
             'dob': self.dob,
             'email': self.email,
+            'meds': meds,
+            'providers': providers,
+            'appointments': appointments,
+            'glucose': glucose
         }
 
     def my_meds(self):
-        meds = [med.to_dict() for med in user_meds]
-        return {
-            'meds': meds,
-        }
+        meds = [med.to_dict() for med in self.user_meds]
+        return meds
     
     def my_providers(self):
         providers = [provider.to_dict() for provider in self.providers]
-        return {
-            'providers': providers,
-        }
+        return providers
 
     def my_appointments(self):
         appointments = [appointment.to_dict() for appointment in self.appointments]
@@ -62,7 +68,7 @@ class User(db.Model, UserMixin):
         }
 
     def my_glucose(self):
-        glucose = [reading.to_dict() for reading in glucose_readings]
+        glucose = [reading.to_dict() for reading in self.glucose_readings]
         return {
             'glucose': glucose
         }

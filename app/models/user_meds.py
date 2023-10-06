@@ -23,7 +23,7 @@ class User_Med(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'medication': self.med.to_dict(),
+            'medication': self.med.short_dict(),
             'provider_id': self.provider.to_dict(),
             'strength': self.strength,
             'directions': self.directions,

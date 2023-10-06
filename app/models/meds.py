@@ -12,13 +12,22 @@ class Med(db.Model):
     strengths = db.Column(db.String(200))
     side_effects = db.Column(db.String(1000))
 
+
     def to_dict(self):
-        side_effects = self.side_effects.split(', ')
         strengths = self.strengths.split(', ')
+        side_effects = self.side_effects.split(', ')
+
         return {
             'id': self.id,
             'name': self.name,
             'strengths': strengths,
             'side_effects': side_effects
+        }
+
+
+    def short_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name
         }
 

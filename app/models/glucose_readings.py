@@ -13,6 +13,7 @@ class Glucose(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     date = db.Column(db.String(50), nullable=False)
     time = db.Column(db.String(50), nullable=False)
+    notes = db.Column(db.String(1000))
 
     user = relationship("User", back_populates='glucose_readings')
 
@@ -21,5 +22,6 @@ class Glucose(db.Model):
             'id': self.id,
             'level': self.level,
             'date': self.date,
-            'time': self.time
+            'time': self.time,
+            'notes': self.notes
         }
