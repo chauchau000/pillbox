@@ -9,4 +9,4 @@ users_providers = db.Table(
 )
 
 if environment == "production":
-    __table_args__ = {'schema': SCHEMA}
+    users_providers.schema = SCHEMA
