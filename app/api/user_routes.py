@@ -35,7 +35,7 @@ def user_providers():
     Query for current user's providers
     """
     user = User.query.get(current_user.id)
-    return user.my_providers()
+    return jsonify(user.my_providers())
 
 
 @user_routes.route('/meds')
@@ -187,6 +187,20 @@ def add_user_provider(provider_id):
     user.providers.append(new_provider)
     db.session.commit()
 
+    return user.my_providers()
+
+
+@user_routes.route('/provider/<int:provider_id>', methods=['DELETE'])
+@login_required
+def delete_user_provider(provider_id):
+    """
+    Delete a provider a user's provider list
+    """
+    old_provider = Provider.query.get(provider_id)
+
+    user = User.query.get(current_user.id)
+
+    user.providers.remove(old_provider)
+    db.session.commit()
 
     return user.my_providers()
-        
