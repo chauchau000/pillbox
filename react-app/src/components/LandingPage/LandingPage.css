@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box
+}
+
+.landing-page-container {
+    
+    height:100vh;
+    width: 100vw;
+    background-color: #352fd9e8;
+    overflow:hidden
+}
+
+#title {
+    font-family: 'Dosis', sans-serif;
+    color: #1AACAC;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: 16px;
+    position: relative;
+    left: 150px;
+    top: 150px;
+}
+
+#welcome {    
+    font-family: 'Dosis', sans-serif;
+    color: #2E97A7;
+    font-weight: 500;
+    font-size: 50px;
+    letter-spacing: 20px;
+    position: relative;
+    left: 300px;
+    top: 150px;
+}
+
+#intro {
+    font-family: 'Dosis', sans-serif;
+    color: #EEEEEE;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 1px;
+    position: relative;
+    left: 300px;
+    top: 120px;
+    padding: 20px 0;
+}
+
+
+.button {
+    position: relative;
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+    /* border: 1px solid black; */
+    left: 450px;
+    top: 120px;
+    background-color: #2e97a7c9;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    color: #EEEEEE;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px 10px 10px 20px;
+    box-shadow: 3px 3px 1px 2px rgba(49, 47, 47, 0.348);
+    margin: 20px 0px
+}
+
+a {
+    text-decoration: none;
+}
+
+.button:hover {
+    cursor: pointer;
+}
