@@ -74,7 +74,7 @@ def seed_user_meds():
         active=True
     )
     med12 = User_Med(
-        med_id=15, user_id=4, provider_id=4, strength='10mg', 
+        med_id=15, user_id=3, provider_id=4, strength='10mg', 
         directions='Take 1 tablet twice daily',
         indication="High blood pressure",
         active=True
