@@ -51,8 +51,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('provider_id', sa.Integer(), nullable=False),
-    sa.Column('date', sa.String(length=50), nullable=False),
-    sa.Column('time', sa.String(length=50), nullable=False),
+    sa.Column('date', sa.Date, nullable=False),
+    sa.Column('time', sa.Time, nullable=False),
     sa.ForeignKeyConstraint(['provider_id'], ['providers.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -61,8 +61,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('level', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('date', sa.String(length=50), nullable=False),
-    sa.Column('time', sa.String(length=50), nullable=False),    
+    sa.Column('date', sa.Date, nullable=False),
+    sa.Column('time', sa.Time, nullable=False),    
     sa.Column('notes', sa.String(length=1000)),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')

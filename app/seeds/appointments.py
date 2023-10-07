@@ -1,5 +1,6 @@
 from app.models import db, Appointment, environment, SCHEMA
 from sqlalchemy.sql import text
+import datetime
 
 
 
@@ -7,33 +8,34 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_appointments():
     appt1 = Appointment(
-        user_id=1, provider_id=1, date="12/2/2023", time='10:00am')    
+        user_id=1, provider_id=1, date=datetime.date(2023,12,12), time=datetime.time(10,0))    
     appt2 = Appointment(
-        user_id=1, provider_id=2, date="1/2/2024", time='12:00pm')
+        user_id=1, provider_id=2, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
     appt3 = Appointment(
-        user_id=1, provider_id=5, date="11/2/2023", time='10:00am')
+        user_id=1, provider_id=5, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
 
     db.session.add(appt1)
     db.session.add(appt2)
     db.session.add(appt3)
 
     appt4 = Appointment(
-        user_id=2, provider_id=2, date="12/2/2023", time='10:00am')    
+        user_id=2, provider_id=2, date=datetime.date(2023,12,12), time=datetime.time(10,0))     
     appt5 = Appointment(
-        user_id=2, provider_id=2, date="1/2/2024", time='10:00am')
+        user_id=2, provider_id=2, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
     appt6 = Appointment(
-        user_id=2, provider_id=5, date="11/2/2023", time='10:00am')
+        user_id=2, provider_id=5, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
+
 
     db.session.add(appt4)
     db.session.add(appt5)
     db.session.add(appt6)
 
     appt7 = Appointment(
-        user_id=3, provider_id=4, date="12/2/2023", time='10:00am')    
+        user_id=3, provider_id=4, date=datetime.date(2023,12,12), time=datetime.time(10,0))    
     appt8 = Appointment(
-        user_id=3, provider_id=1, date="1/2/2024", time='3:00pm')
+        user_id=3, provider_id=1, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
     appt9 = Appointment(
-        user_id=3, provider_id=1, date="11/2/2023", time='10:00am')
+        user_id=3, provider_id=1, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
 
     db.session.add(appt7)
     db.session.add(appt8)
