@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { signUp } from "../../store/session";
 import './SignupForm.css';
 
@@ -8,71 +8,103 @@ function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [dob, setDob] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/home" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-        const data = await dispatch(signUp(username, email, password));
-        if (data) {
-          setErrors(data)
-        }
+      const data = await dispatch(signUp(first_name, last_name, dob, email, password));
+      if (data) {
+        setErrors(data)
+      }
+
     } else {
-        setErrors(['Confirm Password field must be the same as the Password field']);
+      setErrors(['Confirm Password field must be the same as the Password field']);
     }
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <label>
-          Email
-          <input
+    <div id='signup-page-container'>
+      <div id="left-side">
+
+        <div id='sign-up-title'>Create an account</div>
+        <form id='signup-form-container' onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+          <label className='signup-label'> First Name</label>
+          <input className='signup-input'
+            type="text"
+            value={first_name}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+          <label className='signup-label'>
+            Last Name
+          </label>
+          <input className='signup-input'
+            type="text"
+            value={last_name}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+          <label className='signup-label'>
+            Email
+          </label>
+          <input className='signup-input'
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+          <label className='signup-label'>
+            Date of Birth
+          </label>
+          <input className='signup-input'
+            type="date"
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
-          <input
+          <label className='signup-label'>
+            Password
+          </label>
+          <input className='signup-input'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Confirm Password
-          <input
+          <label className='signup-label'>
+            Confirm Password
+          </label>
+          <input className='signup-input'
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+          <button className='form-button' type="submit">Sign Up</button>
+        </form>
+
+        <div id='left-bottom-container'>
+          <p>Already have an account?</p>
+          <Link id='sign-in-button' to='/login'>Sign In</Link>
+        </div>
+      </div>
+
+      <div id="right-side">
+        <div id="placeholder">image goes here</div>
+      </div>
+
+    </div>
   );
 }
 
