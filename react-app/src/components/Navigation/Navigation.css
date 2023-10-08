@@ -1,7 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+
 .profile-dropdown {
   position: absolute;
 }
 
 .hidden {
   display: none;
+}
+
+#profile-button {
+  margin: 30px 0;
+}
+
+#nav-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  /* border: 1px solid black; */
+  height: 100vh;
+  margin: 0;
+  background-color: #352fd9f0;
+  width: 150px;
+
+}
+
+.nav-item {
+  padding: 10px 0px;
+  color: #EEEEEE;
+}
+
+#circle-button {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 0px solid #5f5bc7f0;
+  background-color: #1AACAC;
+  margin: 20px 0;
+}
+
+#user-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-user-circle {
+  font-size:50px;
+  color: #352fd9ce
+}
+
+#nav-icon {
+  font-size: 16px;
+  margin: 0 5px 0 0;
 }
