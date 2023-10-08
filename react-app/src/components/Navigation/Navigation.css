@@ -17,6 +17,7 @@
 #nav-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   list-style-type: none;
   font-family: 'Poppins', sans-serif;
   padding: 20px;
@@ -24,13 +25,19 @@
   height: 100vh;
   margin: 0;
   background-color: #352fd9f0;
-  width: 150px;
+  width: 120px;
 
 }
 
 .nav-item {
-  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
   color: #EEEEEE;
+  height: 100px;
+  
 }
 
 #circle-button {
@@ -39,7 +46,7 @@
   border-radius: 50%;
   border: 0px solid #5f5bc7f0;
   background-color: #1AACAC;
-  margin: 20px 0;
+  margin: 20px 0 40px 0;
 }
 
 #user-button-container {
@@ -49,11 +56,36 @@
 }
 
 .fa-user-circle {
-  font-size:50px;
+  font-size: 50px;
   color: #352fd9ce
 }
 
 #nav-icon {
-  font-size: 16px;
-  margin: 0 5px 0 0;
+  font-size: 45px;
 }
+
+/* .nav-item-text {
+  display: none
+} */
+
+
+#logout-button {
+  margin: 40px 0;
+  cursor: pointer;
+}
+
+#logout-icon {
+  font-size: 30px;
+}
+
+#nav-title {
+  font-family: 'Poppins', sans-serif;
+  color: #EEEEEE;
+  letter-spacing: 3px;
+  font-size: 20px;
+  margin: 10px 0 30px 0;
+}
+
+/* .nav-item:hover{
+  background-color: rgba(59, 59, 157, 0.587);
+} */
