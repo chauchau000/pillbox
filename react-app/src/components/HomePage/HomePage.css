@@ -1,9 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+
+
 #home-page-container {
     width: 100%;
-    background-color: #1aacaccd;
+    background-color: #EEEEEE;
     flex: 1;
     box-sizing: border-box;
-    padding: 20px
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: rgba(35, 35, 35, 0.893);
+    overflow-y: scroll;
+
+}
+
+#welcome-text {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 #schedule-container {
@@ -20,4 +35,117 @@
     border: 1px solid black;
     padding: 10px;
     margin: 10px;
+}
+
+#med-table-header-container {
+    padding: 10px 0;
+    height: 30px;
+    border-radius: 8px;
+    background-color: #1aacac78;
+}
+
+
+.med-item-container {
+    padding: 10px 0;
+    height: 55px;
+    border-radius: 8px;
+    background-color: #1aacac78;
+    margin: 7px 0;
+}
+
+.med-table-item {
+    margin: 0 5px;
+    
+}
+
+.med-green-active, .med-red-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    height: 45px;
+    width: 125px
+
+}
+
+.med-green-active {
+    background-color: rgba(44, 149, 44, 0.55);
+    color: rgb(4, 87, 4)
+}
+
+.med-red-active {
+    background-color: rgba(255, 93, 83, 0.426);
+    color: rgb(201, 62, 62);
+}
+
+.med-active {
+    /* margin: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dot {
+    font-size: 40px;
+    padding: 0 5px;
+}
+
+.med-edit>.material-symbols-outlined, .med-delete>.material-symbols-outlined {
+    font-size: 25px
+}
+
+
+/* table spacing start */
+
+#med-table {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    font-size: 16px;
+}
+
+.med-item-container, #med-table-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+
+}
+
+.med-name {
+    flex: 2.2
+}
+
+.med-strength {
+    flex: 1
+}
+
+.med-directions {
+    flex: 5
+}
+
+.med-indication {
+    flex: 2
+}
+
+.med-provider {
+    flex: 2
+}
+
+.med-active {
+    flex: 2
+}
+
+.med-edit, .med-delete {
+    flex: 0.5;
+    font-size: 15px
+}
+.edit-item, .delete-item, .active-item {
+    cursor: pointer;
+}
+/* table spacing end */
+
+
+
+#add-medication:hover {
+    cursor: pointer;
 }

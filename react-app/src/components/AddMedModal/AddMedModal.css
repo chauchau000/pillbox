@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+
+.add-med-modal {
+    background-color:rgb(201, 62, 62);
+    border-radius: 15px;
+    width: fit-content;
+    height: fit-content;
+    margin: 5px 0;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.138);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-med-modal:hover{
+    cursor: pointer;
+}
+
+#add-med-form-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.add-med-label {
+    padding: 5px 0;
+}
+
+#med-active-container {
+    display: flex;
+    margin: 10px 0;
+}
+
+#active-choice-1, #active-choice-2 {
+    margin: 0 10px
+}

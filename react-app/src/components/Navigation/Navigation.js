@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import ProfileButton from './ProfileButton';
+// import ProfileButton from './ProfileButton';
 import { logout } from "../../store/session";
 
 import './Navigation.css'
@@ -27,10 +27,9 @@ function Navigation({ isLoaded }) {
 
 	return (
 		<div id='nav-list'>
-			<p id='nav-title'>pillbox</p>
+			<NavLink exact to='/home' id='nav-title'>pillbox</NavLink>
 			{isLoaded && (
 				<>
-					{/* <ProfileButton id='profile-button' user={sessionUser} /> */}
 					<NavLink exact to="/home" className='nav-item'>
 						<span id='nav-icon' className="material-symbols-outlined">
 							pill

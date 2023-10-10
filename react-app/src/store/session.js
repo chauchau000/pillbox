@@ -6,6 +6,8 @@ const GET_APPOINTMENTS = "session/GET_APPOINTMENTS";
 const GET_USER_PROVIDERS = 'session/GET_USER_PROVIDERS'
 const GET_GLUCOSE = 'session/GET_GLUCOSE'
 
+// const ADD_USERMED = 'session/ADD_USERMED'
+
 const setUser = (user) => ({
 	type: SET_USER,
 	payload: user,
@@ -34,6 +36,11 @@ const getGlucose = (glucose) => ({
 	type: GET_GLUCOSE,
 	payload: glucose
 })
+
+// const addUserMed = (med) => ({
+// 	type: ADD_USERMED,
+// 	payload: med
+// })
 
 
 const initialState = { user: null };
@@ -172,6 +179,62 @@ export const fetchGlucose = () => async dispatch => {
 		const errors = await response.json()
 		return errors
 	}
+}
+
+export const createUserMed = (med_id, provider_id, newMed) => async dispatch => {
+	const res = await fetch(`/api/users/meds/${med_id}/${provider_id}`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(newMed)
+	})
+
+	if (res.errors) {
+		const errors = await res.json();
+		return errors;
+	} else {
+		const data = await res.json();
+
+		console.log('User med created')
+		return data
+	}
+
+}
+
+export const deleteUserMed = (userMed_id) => async dispatch => {
+	const res = await fetch(`/api/users/meds/${userMed_id}`, {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		}
+	})
+
+	if (res.ok) {
+		console.log('Med successfully deleted')
+		return res
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
+
+export const flipActive = (userMed_id) => async dispatch => {
+	const res = await fetch(`/api/users/meds/${userMed_id}/active`, {
+		method: "PUT",
+		headers: {
+			'Content-Type': 'application/json',
+		}
+	})
+
+	if (res.ok) {
+		// console.log("Med activity flipped")
+		return res
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+
 }
 
 
