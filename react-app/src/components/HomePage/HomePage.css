@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 #home-page-container {
     width: 100%;
@@ -21,24 +25,9 @@
     font-weight: 700;
 }
 
-#schedule-container {
-    margin: 20px;
-    border: 1px solid black;
-    height: 500px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.section-container {
-    flex: 1;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-}
 
 #med-table-header-container {
-    padding: 10px 0;
+    padding: 25px 0;
     height: 30px;
     border-radius: 8px;
     background-color: #1aacac78;
@@ -46,7 +35,7 @@
 
 
 .med-item-container {
-    padding: 10px 0;
+    padding: 38px 0;
     height: 55px;
     border-radius: 8px;
     background-color: #1aacac78;
@@ -146,6 +135,20 @@
 
 
 
-#add-medication:hover {
+.add-med-modal {
+    background-color:rgb(201, 62, 62);
+    border-radius: 15px;
+    width: fit-content;
+    height: fit-content;
+    margin: 5px 0;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.138);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-med-modal:hover{
     cursor: pointer;
 }

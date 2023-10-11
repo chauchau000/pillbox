@@ -7,6 +7,7 @@ import OpenModalButton from '../OpenModalButton/OpenModalButton'
 import './HomePage.css'
 import AddMedModal from '../AddMedModal/AddMedModal'
 import DeleteMedModal from '../DeleteMedModal/DeleteMedModal'
+import MedChart from '../MedChart/MedChart'
 
 function HomePage() {
   const dispatch = useDispatch()
@@ -33,13 +34,7 @@ function HomePage() {
 
   return (
     <div id='home-page-container'>HomePage
-      <div id='schedule-container'>
-        <div id="am-container" className='section-container'>AM</div>
-        <div id="noon-container" className='section-container'>NOON</div>
-        <div id="evening-container" className='section-container'>PM</div>
-        <div id="bedtime-container" className='section-container'>BEDTIME</div>
-      </div>
-
+      <MedChart />
       <div>
         <p id="welcome-text">Welcome {user?.first_name}!</p>
       </div>

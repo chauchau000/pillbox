@@ -20,12 +20,12 @@
   align-items: center;
   list-style-type: none;
   font-family: 'Poppins', sans-serif;
-  padding: 20px;
+  padding: 0px;
   /* border: 1px solid black; */
   height: 100vh;
-  margin: 0;
   background-color: #352fd9f0;
-  width: 120px;
+  width: 140px;
+  
 
 }
 
@@ -37,6 +37,7 @@
   padding: 20px 0px;
   color: #EEEEEE;
   height: 100px;
+  margin: 10px;
   
 }
 

@@ -10,14 +10,10 @@ function DeleteMedModal({id}) {
 	const { closeModal } = useModal();
 
     const handleDelete = async () => {
-        const res = await dispatch(deleteUserMed(id))
-        // console.log(res)
-        if (res.ok) {
-            await dispatch(fetchUserMeds())
-            closeModal()
-        } else {
-            console.log('Something went wrong with the delete')
-        }
+        await dispatch(deleteUserMed(id))
+        await dispatch(fetchUserMeds())
+        closeModal()
+  
     }
 
   return (
