@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
-#add-med-modal-container {
+#edit-med-modal-container {
     width: 600px;
     height: 600px;
     border-radius: 40px;
@@ -15,15 +15,15 @@
     box-sizing: border-box;
 }
 
-#add-med-title {
+#edit-med-title {
     font-size: 30px;
 }
 
-.add-med-modal:hover{
+.edit-med-modal:hover{
     cursor: pointer;
 }
 
-#add-med-form-container {
+#edit-med-form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,7 +32,7 @@
     width: 100%;
 }
 
-#add-med-label {
+#edit-med-label {
     display: flex;
     align-items: center;
     padding: 4px;
@@ -43,7 +43,7 @@
 
 
 
-.add-med-label {
+.edit-med-label {
     padding: 5px 0;
 }
 
@@ -150,7 +150,7 @@
     cursor: pointer;
 }
 
-#add-directions-label {
+#edit-directions-label {
     width: 100%;
     background-color: white;
 }
@@ -178,15 +178,15 @@
     display: flex;
 }
 
-#add-provider-container {
+#edit-provider-container {
     flex: 1
 }
 
-#add-provider-text {
+#edit-provider-text {
     font-size: 12px;
     padding: 10px 2px;
 }
-#add-provider-label {
+#edit-provider-label {
     width: 240px;
     border: 1px solid black;
     background-color: white;
@@ -208,7 +208,7 @@
 
 
 
-#add-med-button {
+#edit-med-button {
     padding: 10px;
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -218,7 +218,7 @@
     margin-top: 60px;
 }
 
-#add-provider-btn {
+#edit-provider-btn {
     text-align: center;
     border: 1px solid black;
     padding: 6px;

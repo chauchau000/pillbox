@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserMeds, fetchUserProviders, flipActive } from '../../store/session'
 import { fetchAllMeds } from '../../store/meds'
 import { fetchAllProviders } from '../../store/providers'
+
 import OpenModalButton from '../OpenModalButton/OpenModalButton'
 import './HomePage.css'
 import AddMedModal from '../AddMedModal/AddMedModal'
 import DeleteMedModal from '../DeleteMedModal/DeleteMedModal'
 import MedChart from '../MedChart/MedChart'
+import EditMedModal from '../EditMedModal/EditMedModal'
 
 function HomePage() {
   const dispatch = useDispatch()
@@ -33,7 +35,7 @@ function HomePage() {
   }, [dispatch])
 
   return (
-    <div id='home-page-container'>HomePage
+    <div id='home-page-container'>
       <MedChart />
       <div>
         <p id="welcome-text">Welcome {user?.first_name}!</p>
@@ -67,10 +69,13 @@ function HomePage() {
                 {med?.active ? <div className='med-green-active'><span className='dot'>·</span>Active</div> : <div className='med-red-active'><span className='dot'>·</span> Inactive</div>}
               </th>
               <th className="med-table-item med-edit edit-item">
-                <span className="material-symbols-outlined">edit</span>
+                <OpenModalButton modalComponent={<EditMedModal userMed={med} />}
+                  buttonHTML={<span className="material-symbols-outlined">edit</span>}
+                  className='med-edit'
+                />
               </th>
               <th className="med-table-item med-delete delete-item">
-                <OpenModalButton modalComponent={<DeleteMedModal id={med.id} />}
+                <OpenModalButton modalComponent={<DeleteMedModal med={med} />}
                   buttonHTML={<span className="material-symbols-outlined">close</span>}
                   className='med-delete'
                 />

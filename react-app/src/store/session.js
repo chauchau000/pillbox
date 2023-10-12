@@ -281,8 +281,27 @@ export const flipActive = (userMed_id) => async dispatch => {
 		const errors = await res.json()
 		return errors
 	}
-
 }
+
+export const editMed = (userMed_id, newMed) => async dispatch => {
+	const res = await fetch(`/api/users/meds/${userMed_id}`, {
+		method: "PUT",
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newMed)
+	})
+
+	if (res.ok) {
+		const data = await res.json()
+		// console.log(data)
+		return data
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
+
 
 
 const sessionReducer = (state = initialState, action) => {

@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
-import { createUserMed, fetchUserMeds } from "../../store/session";
-import { useDispatch, useSelector } from "react-redux";
-import { useModal } from "../../context/Modal";
-import './AddMedModal.css'
-
+import React, {useState, useEffect, useRef} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { editMed, fetchUserMeds } from '../../store/session'
+import { useModal } from '../../context/Modal'
+import './EditMedModal.css'
 
 const directionsArray = [
     'Take 1 tablet once daily', //
@@ -25,59 +24,28 @@ const directionsArray = [
     'Take 1 tablet every 2 hours as needed',
 ]
 
-function AddMedModal() {
-    const dispatch = useDispatch();
-    const allMedsData = useSelector(state => state.meds)
-    const allProvidersData = useSelector(state => state.providers)
-    const allMeds = Object.values(allMedsData).map(med => med.name).sort() // array of med names
-    const allProviders = Object.values(allProvidersData).map(p => p.name).sort() // array of med names
 
-    const [med, setMed] = useState("");
-    const [finalMed, setFinalMed] = useState('');
-    const [strength, setStrength] = useState("");
-    const [provider, setProvider] = useState("");
-    const [provider_id, setProviderId] = useState(0);
-    const [directions, setDirections] = useState("");
-    const [indication, setIndication] = useState("");
-    const [isActive, setIsActive] = useState('false');
+function EditMedModal({userMed}) {
+    // console.log(userMed)
+    const dispatch = useDispatch();
+    const allProvidersData = useSelector(state => state.providers)
+    const allProviders = Object.values(allProvidersData).map(p => p.name).sort() // array of med names
+    const allMedsData = useSelector(state => state.meds)
+
+    const [strength, setStrength] = useState(userMed.strength);
+    const [provider, setProvider] = useState(userMed.provider_id.name);
+    const [provider_id, setProviderId] = useState(userMed.provider_id.id);
+    const [directions, setDirections] = useState(userMed.directions);
+    const [indication, setIndication] = useState(userMed.indication);
+    const [isActive, setIsActive] = useState(userMed.active);
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
-    //Medication search
-    const [filteredMeds, setFilteredMeds] = useState([...allMeds])
-    const [medResults, setMedResults] = useState(false)
-    const medRef = useRef(null);
-
-    const closeMedSearch = () => setMedResults(false);
-
-    const handleMedsFilter = (event) => {
-
-        let searchWord = event.target.value;
-        const newFilter = allMeds.filter((value) => {
-            return value.toLowerCase().includes(searchWord.toLowerCase())
-        })
-
-        if (searchWord === '') {
-            setFilteredMeds([...allMeds])
-        } else {
-            setFilteredMeds(newFilter)
-        }
-    }
-
-    const handleMedSelect = (m) => {
-        setMed(m)
-        setFinalMed(m)
-        setMedResults(false)
-    }
-
-    // console.log(med)
 
     //Select Strength
-    let strengthOptions;
-
-    if (finalMed) {
-        strengthOptions = Object.values(allMedsData).find(m => m.name === finalMed).strengths
-    }
+    // let strengthOptions = []
+    let strengthOptions = Object.values(allMedsData).find(m => m.name === userMed.medication.name).strengths
+    
 
     const handleStrengthSelect = (e) => {
         const strength = e.target.value;
@@ -137,14 +105,14 @@ function AddMedModal() {
     //handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const med_id = Object.values(allMedsData).find(m => m.name === med).id
         const newMed = {
             strength,
             directions,
             indication,
             isActive,
+            provider_id
         }
-        const data = await dispatch(createUserMed(med_id, provider_id, newMed));
+        const data = await dispatch(editMed(userMed.id, newMed));
         // console.log(newMed)
         if (data.errors) {
             console.log(data)
@@ -157,10 +125,6 @@ function AddMedModal() {
 
     useEffect(() => {
 
-        const handleClickOutside = (event) => {
-            if (medRef.current && !medRef.current.contains(event.target)) closeMedSearch();
-        };
-        if (medResults) window.addEventListener('click', handleClickOutside);
 
         const handleDirectionsClickOutside = (event) => {
             if (directionsRef.current && !directionsRef.current.contains(event.target)) closeDirectionsSearch();
@@ -174,49 +138,25 @@ function AddMedModal() {
 
 
         return () => {
-            window.removeEventListener('click', handleClickOutside)
             window.removeEventListener('click', handleDirectionsClickOutside)
             window.removeEventListener('click', handleProviderClickOutside)
         };
 
-    }, [medResults, directionsResults, providerResults])
+    }, [directionsResults, providerResults])
 
     return (
-        <div id="add-med-modal-container">
-            <div id="add-med-title">Add Medication</div>
-            <form id='add-med-form-container' onSubmit={handleSubmit}>
+        <div id="edit-med-modal-container">
+            <div id="edit-med-title">Edit Medication</div>
+            <form id='edit-med-form-container' onSubmit={handleSubmit}>
                 <div id={errors.length ? 'errors-div' : 'hidden-errors'} >
                     {errors.map((error, idx) => (
                         <p className='p-error' key={idx}>{error}</p>
                     ))}
                 </div>
 
-                <div id="med-strength-container">
-                    <div id='med-container'>
-                        <div className='add-med-header'>
-                            Medication
-                        </div>
-                        <div>
-                            <div id='add-med-label' className='add-med-label' onClick={(e) => { e.stopPropagation(); setMedResults(!medResults) }}>
-                                {med ? med : "Select your medication ..."}
-                            </div>
-
-                            <div className={medResults ? "options-container" : 'hidden'} ref={medRef}>
-                                <input type="text"
-                                    className="med-search-input"
-                                    onChange={handleMedsFilter} />
-                                {filteredMeds.map((m, key) => (
-                                    <div className="option" key={key}>
-                                        <input type="radio" className="radio-input" id={m} name='medication' onChange={() => { handleMedSelect(m) }} />
-                                        <label htmlFor={m}>{m}</label>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                    </div>
+                    
                     <div id="strength-container">
-                        <label className='add-med-label'>
+                        <label className='edit-med-label'>
                             Strength
                         </label>
                         <select name='strength'
@@ -224,22 +164,22 @@ function AddMedModal() {
                             onChange={handleStrengthSelect}>
 
                             <option value='' disabled selected>Strength</option>
-                            {med && strengthOptions.map((strength, key) => (
+                            {strengthOptions.map((strength, key) => (
                                 <option key={key} value={strength}>
                                     {strength}
                                 </option>
                             ))}
                         </select>
                     </div>
-                </div>
+
 
                 <div id="directions-container">
-                    <div className='add-directions-label'>
+                    <div className='edit-directions-label'>
                         Directions
                     </div>
                     <div>
-                        <div id='add-directions-label'
-                            className='add-med-label'
+                        <div id='edit-directions-label'
+                            className='edit-med-label'
                             onClick={(e) => { e.stopPropagation(); setDirectionsResults(!directionsResults) }}>
                             {directions ? directions : "Select your directions ... "}
                         </div>
@@ -262,13 +202,14 @@ function AddMedModal() {
                 <div id="indication-provider-container">
                     <div id="indications-container">
 
-                        <label className='add-med-label'>
+                        <label className='edit-med-label'>
                             Indication
                         </label>
                         <input
                             className='form-input'
                             type="text"
                             value={indication}
+                            placeholder={indication}
                             onChange={(e) => setIndication(e.target.value)}
                             required
                         />
@@ -276,12 +217,12 @@ function AddMedModal() {
 
 
                     <div id="provider-container">
-                        <div className='add-provider-label'>
+                        <div className='edit-provider-label'>
                             Provider
                         </div>
                         <div>
-                            <div id='add-provider-label'
-                                className='add-provider-label'
+                            <div id='edit-provider-label'
+                                className='edit-provider-label'
                                 onClick={(e) => { e.stopPropagation(); setProviderResults(!providerResults) }}>
                                 {provider ? provider : "Select your provider ..."}
                             </div>
@@ -299,25 +240,6 @@ function AddMedModal() {
                             </div>
                         </div>
 
-
-
-                        {/* <label className='add-med-label'>
-                            Provider
-                        </label>
-
-                        <select name='provider'
-                            className='select-input'
-                            onChange={handleProviderSelect}
-                            required>
-                            <option value='' disabled selected>Provider</option>
-
-                            {allProviders.map((p, key) => (
-                                <option key={key} value={p}>
-                                    {p}
-                                </option>
-                            ))}
-                        </select> */}
-
                     </div>
                 </div>
 
@@ -334,18 +256,21 @@ function AddMedModal() {
                             <label className='activity-label' htmlFor="inactive">Inactive</label>
                         </div>
                     </div>
-                    <div id="add-provider-container">
-                        <p id='add-provider-text'>Don't see your provider? Add a new provider here.</p>
-                        <div id="add-provider-btn"> Add new provider
+                    <div id="edit-provider-container">
+                        <p id='edit-provider-text'>Don't see your provider? Add a new provider here.</p>
+                        <div id="edit-provider-btn"> Add new provider
                         </div>
                     </div>
                 </div>
 
 
-                <button type="submit" id='add-med-button'>Add Med</button>
+                <button type="submit" id='edit-med-button'>Save changes</button>
             </form >
+
+
+
         </div>
     )
 }
 
-export default AddMedModal
+export default EditMedModal
