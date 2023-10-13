@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField
+from wtforms import StringField, BooleanField, IntegerField
 from wtforms.validators import DataRequired
 
 
@@ -12,5 +12,8 @@ class UserMedForm(FlaskForm):
         'isActive', validators=[DataRequired()])
     strength = StringField(
         'strength', validators=[DataRequired()]
+    )
+    provider_id = IntegerField(
+        'provider_id'
     )
 

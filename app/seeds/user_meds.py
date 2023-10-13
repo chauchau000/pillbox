@@ -24,7 +24,7 @@ def seed_user_meds():
     )
     med4 = User_Med(
         med_id=7, user_id=1, provider_id=5, strength='20mg', 
-        directions='Take 1 tablet once daily at lunch',
+        directions='Take 1 tablet once daily at noon',
         indication="Depression",
         active=False
     )
@@ -32,7 +32,7 @@ def seed_user_meds():
     #user 2
     med5 = User_Med(
         med_id=6, user_id=2, provider_id=2, strength='500mg', 
-        directions='Take 1 tablet every 4 hours for pain',
+        directions='Take 1 tablet every 6 hours',
         indication="Pain",
         active=True
     )
@@ -43,13 +43,13 @@ def seed_user_meds():
     )
     med7 = User_Med(
         med_id=10, user_id=2, provider_id=2, strength='40mg', 
-        directions='Take 1 tablet at bedtime',
+        directions='Take 1 tablet once daily at bedtime',
         indication="High cholesterol",
         active=True
     )
     med8 = User_Med(
         med_id=16, user_id=2, provider_id=2, strength='100mg', 
-        directions='Take 1 tablet once daily',
+        directions='Take 1 tablet once daily in the morning',
         indication="Gout",
         active=True
     )
@@ -57,7 +57,7 @@ def seed_user_meds():
     #user 3
     med9 = User_Med(
         med_id=5, user_id=3, provider_id=4, strength='600mg', 
-        directions='Take 1 tablet every 6 hours for pain',
+        directions='Take 1 tablet every 6 hours as needed',
         indication="Pain",
         active=True
     )
@@ -69,7 +69,7 @@ def seed_user_meds():
     )
     med11 = User_Med(
         med_id=10, user_id=3, provider_id=1, strength='40mg', 
-        directions='Take 1 tablet at bedtime',
+        directions='Take 1 tablet once daily at bedtime',
         indication="High cholesterol",
         active=True
     )

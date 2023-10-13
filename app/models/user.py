@@ -53,13 +53,9 @@ class User(db.Model, UserMixin):
 
     def my_appointments(self):
         appointments = [appointment.to_dict() for appointment in self.appointments]
-        return {
-            'appointments': appointments,
-        }
+        return appointments
 
     def my_glucose(self):
         glucose = [reading.to_dict() for reading in self.glucose_readings]
-        return {
-            'glucose': glucose
-        }
+        return glucose
 
