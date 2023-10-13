@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+#edit-med-modal-container {
+    width: 600px;
+    height: 600px;
+    border-radius: 40px;
+    background-color: #EEEEEE;
+    font-family: 'Poppins', sans-serif;
+    padding: 40px 40px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#edit-med-title {
+    font-size: 30px;
+}
+
+.edit-med-modal:hover{
+    cursor: pointer;
+}
+
+#edit-med-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 100%;
+}
+
+#edit-med-label {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    width: 240px;
+    height: 25px;
+    background-color: white;
+}
+
+
+
+.edit-med-label {
+    padding: 5px 0;
+}
+
+#med-active-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+#med-container, #strength-container {
+    width: 50%;
+}
+
+.activity-label {
+    margin: 5px;
+}
+
+#active-choice-1, #active-choice-2 {
+    margin: 0 10px
+}
+
+.form-input{
+    width: 240px;
+    height: 25px;
+}
+
+.hidden {
+    display: none
+}
+
+.dataResults-container {
+    cursor: pointer;
+}
+
+.options-container {
+	/* border: 1px solid black; */
+	position: absolute;
+	top: 206px;
+	width: 240px;
+	height: auto;
+    max-height: 300px;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+	overflow: hidden;
+	overflow-y: auto;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#med-search-box{
+    position: absolute;
+}
+
+.med-result {
+    padding: 4px 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.select-input {
+    padding: 4px;
+    margin: 0;
+    height: 26px;
+}
+
+#med-strength-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+}
+#med-container, #strength-container, #directions-container, #indications-container, #provider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+}
+
+.directionsResult {
+    position: absolute;
+	top: 265px;
+	height: fit-content;
+    width: 522px;
+    max-height: 300px;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+
+	overflow: hidden;
+	overflow-y: auto;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.direction-text {
+    padding: 4px 10px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.direction-text:hover {
+    cursor: pointer;
+}
+
+#edit-directions-label {
+    width: 100%;
+    background-color: white;
+}
+
+
+#directions-input {
+    height: 25px;
+    width: 100%
+    
+}
+.radio-input {
+    display: none;
+}
+
+#indication-provider-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+
+#activity-provider-container {
+    display: flex;
+}
+
+#edit-provider-container {
+    flex: 1
+}
+
+#edit-provider-text {
+    font-size: 12px;
+    padding: 10px 2px;
+}
+#edit-provider-label {
+    width: 240px;
+    border: 1px solid black;
+    background-color: white;
+}
+.providerResults {
+    position: absolute;
+	top: 330px;
+	height: fit-content;
+    width: 300px;
+    max-height: 300px;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+
+	overflow: hidden;
+	overflow-y: auto;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+
+#edit-med-button {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: rgb(225, 105, 105);
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 60px;
+}
+
+#edit-provider-btn {
+    text-align: center;
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 5px;
+    width: 150px;
+    font-size: 14px;
+}
+
+
+
+/* ERROR HANDLINE CSS */
+#errors-div {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.p-error {
+    font-size: 14px;
+    margin: 5px 0;
+    color: red;
+}

@@ -1,20 +1,37 @@
-import React, {useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch,  } from 'react-redux'
+
+
 import { fetchUserAppointments, fetchUserProviders } from '../../store/session'
 import './Appointments.css'
 
-function Appointments() {
 
+
+function Appointments() {
   const dispatch = useDispatch()
 
 
-  useEffect( () => {
+
+
+
+  useEffect(() => {
     dispatch(fetchUserProviders())
     dispatch(fetchUserAppointments())
   }, [dispatch])
 
   return (
-    <div>Appointments</div>
+    <div>
+      <div>Appointments</div>
+      {/* <Calendar
+        localizer={localizer}
+        events={events}
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: 500 }}
+      /> */}
+
+
+    </div>
   )
 }
 

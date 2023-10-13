@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+#add-med-modal-container {
+    width: 600px;
+    height: 800px;
+    border-radius: 40px;
+    background-color: #EEEEEE;
+    font-family: 'Poppins', sans-serif;
+    padding: 40px 40px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#add-med-title {
+    font-size: 30px;
+}
+
+.add-med-modal:hover{
+    cursor: pointer;
+}
+
+#add-med-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+#add-med-box {
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    /* width: 240px; */
+    height: 25px;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-right: 10px;
+
+    
+}
+
+
+.add-med-label {
+    padding: 5px 0;
+}
+
+#med-active-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+#med-container, #strength-container {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.activity-label {
+    margin: 5px;
+}
+
+#active-choice-1, #active-choice-2 {
+    margin: 0 10px
+}
+
+.form-input{
+    width: 240px;
+    height: 25px;
+}
+
+.hidden {
+    display: none
+}
+
+.dataResults-container {
+    cursor: pointer;
+}
+
+.med-results-container {
+	/* border: 1px solid black; */
+	position: absolute;
+	top: 260px;
+	width: 240px;
+	height: auto;
+    max-height: 300px;
+	border-radius: 0px 8px 0px 8px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+	overflow: hidden;
+	overflow-y: auto;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 4px 8px;
+}
+
+#med-search-input {
+    width: 205px;
+    height: 30px;
+    margin: 4px
+}
+
+#provider-search-input {
+    width: 205px;
+    height: 30px;
+    margin: 4px
+}
+
+
+#med-search-input::placeholder {
+    padding: 4px;
+}
+
+#med-search-box{
+    position: absolute;
+}
+
+.med-result {
+    padding: 4px 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.strength-input {
+    padding: 4px;
+    margin-left: 10px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+
+}
+
+#med-strength-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#med-container, #strength-container {
+    flex: 1;
+}
+
+#med-container, #strength-container, #directions-container, #indications-container, #provider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+}
+
+#directions-container {
+    margin-bottom: 30px;
+}
+
+.directionsResult {
+    position: absolute;
+	top: 365px;
+	height: fit-content;
+    width: 522px;
+    max-height: 300px;
+	border-radius: 0 8px 0 8px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+	overflow: hidden;
+	overflow-y: auto;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#indication-input {
+    padding: 8px;
+    outline: none;
+    border: none;
+    width: 240px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.direction-text {
+    padding: 4px 10px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.direction-text:hover {
+    cursor: pointer;
+}
+
+#add-directions-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px;
+    width: 100%;
+    background-color: white;
+    height: 40px;
+    border-radius: 8px;
+}
+
+#directions-search-input {
+    width: 495px;
+    height: 30px;
+    margin: 6px
+}
+
+
+#directions-input {
+    height: 25px;
+    width: 100%
+    
+}
+.radio-input {
+    display: none;
+}
+
+.radio-label {
+    padding: 6px;
+    
+}
+
+.option-container {
+    margin: 6px 0;
+}
+
+.option-container:hover {
+    background-color: #EEEEEE;
+}
+
+#indication-provider-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    margin-bottom: 30px;
+}
+
+
+#activity-provider-container {
+    display: flex;
+}
+
+#add-provider-container {
+    flex: 1
+}
+
+#add-provider-text {
+    font-size: 12px;
+    padding: 10px 2px;
+}
+#add-provider-label {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
+}
+.providerResults {
+    position: absolute;
+	top: 470px;
+	height: fit-content;
+    width: 260px;
+    max-height: 300px;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+	overflow: hidden;
+	overflow-y: auto;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+
+#add-med-button {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: rgb(225, 105, 105);
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 60px;
+}
+
+#add-provider-btn {
+    text-align: center;
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 5px;
+    width: 150px;
+    font-size: 14px;
+}
+
+
+
+/* ERROR HANDLINE CSS */
+#errors-div {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.p-error {
+    font-size: 14px;
+    margin: 5px 0;
+    color: red;
+}

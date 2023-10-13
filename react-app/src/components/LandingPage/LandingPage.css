@@ -42,7 +42,7 @@ body {
     letter-spacing: 20px;
     position: relative;
     left: 300px;
-    top: 150px;
+    top: 170px;
 }
 
 #intro {
@@ -53,8 +53,8 @@ body {
     letter-spacing: 1px;
     position: relative;
     left: 300px;
-    top: 120px;
-    padding: 20px 0;
+    top: 140px;
+    padding: 60px 0 40px 0;
 }
 
 
@@ -64,7 +64,7 @@ body {
     height: 35px;
     border-radius: 5px;
     /* border: 1px solid black; */
-    left: 450px;
+    left: 520px;
     top: 120px;
     background-color: #2e97a7c9;
     font-family: 'Poppins', sans-serif;
