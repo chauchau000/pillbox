@@ -7,7 +7,7 @@ import { fetchAllProviders } from '../../store/providers'
 import OpenModalButton from '../OpenModalButton/OpenModalButton'
 import './HomePage.css'
 import AddMedModal from '../AddMedModal/AddMedModal'
-import DeleteMedModal from '../DeleteMedModal/DeleteMedModal'
+import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal'
 import MedChart from '../MedChart/MedChart'
 import EditMedModal from '../EditMedModal/EditMedModal'
 
@@ -75,7 +75,7 @@ function HomePage() {
                 />
               </th>
               <th className="med-table-item med-delete delete-item">
-                <OpenModalButton modalComponent={<DeleteMedModal med={med} />}
+                <OpenModalButton modalComponent={<ConfirmDeleteModal id={med.id} deleteItem='med'/>}
                   buttonHTML={<span className="material-symbols-outlined">close</span>}
                   className='med-delete'
                 />

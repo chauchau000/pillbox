@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+
+#add-appt-container {
+    height: 450px;
+    width: 450px;
+    background-color: white;
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 20px;
+    background-color: #EEEEEE
+
+}
+
+#add-appt-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+#appt-provider-container {
+    position: relative
+}
+
+#add-appt-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.add-appt-label {
+    margin: 0 0 5px 0 ;
+}
+
+#add-appt-provider-label {
+    background-color:#2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 23rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.appt-providerResults {
+    position: absolute;
+	top: 70px;
+	height: fit-content;
+    max-height: 300px;
+    width: 23rem;
+    max-height: 300px;
+	border-radius: 5px;
+	background-color: #2E97A7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+#appt-provider-search-input {
+    height: 35px;
+    margin: 8px;
+    width: 22rem;
+    padding: 8px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.appt-option-container {
+    padding: 6px 2pt;
+}
+.appt-radio-label {
+    color: white;
+    padding: 6px;
+
+}
+.appt-option-container:hover {
+    background-color: #1AACAC;
+}
+
+#date-time-contianer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+#date-container, #time-container {
+    padding: 10px;
+}
+
+.appt-date-picker, .appt-time-picker {
+    background-color:#2E97A7;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.appt-date-picker {
+    width: 200px
+}
+
+.appt-time-picker {
+    width: 148px;
+}
+
+::-webkit-calendar-picker-indicator {
+    background-color: white;
+    border-radius: 5px;;
+    cursor: pointer;
+}
+
+#add-appt-button {
+    margin-top: 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    background-color: #1AACAC ;
+    outline: none;
+    border: none;
+    width: 150px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#errors-div {
+    height: 40px;
+}

@@ -24,7 +24,7 @@
   /* border: 1px solid black; */
   height: 100vh;
   background-color: #352fd9f0;
-  width: 140px;
+  width: 150px;
   
 
 }
@@ -63,6 +63,7 @@
 
 #nav-icon {
   font-size: 45px;
+  padding: 6px;
 }
 
 /* .nav-item-text {
@@ -77,6 +78,7 @@
 
 #logout-icon {
   font-size: 30px;
+  padding: 6px;
 }
 
 #nav-title {

@@ -302,6 +302,42 @@ export const editMed = (userMed_id, newMed) => async dispatch => {
 	}
 }
 
+export const createAppt = (provider_id, appt) => async dispatch => {
+	const res = await fetch(`/api/appointments/${provider_id}`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(appt)
+	})
+
+	if (res.ok) {
+		const data = await res.json();
+		console.log('User appt created')
+		return data
+	} else {
+		const errors = await res.json();
+		return errors;
+	}
+}
+
+export const deleteAppt = (id) => async dispatch => {
+	const res = await fetch(`/api/appointments/${id}`, {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		}
+	})
+
+	if (res.ok) {
+		const data = await res.json()
+		// console.log(data)
+		return data
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
 
 
 const sessionReducer = (state = initialState, action) => {

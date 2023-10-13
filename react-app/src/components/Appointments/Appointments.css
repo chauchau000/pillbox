@@ -40,14 +40,16 @@
 
 #appointments-container {
     border: 3px solid black;
+    border-radius: 20px;
 }
 
 #appointments-grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, auto);
+    grid-gap: 12px 12px;
     padding: 20px;
-    grid-gap: 1px 9px;
+
 }
 
 .a-card-container {
@@ -57,5 +59,32 @@
     align-items: center;
     border: 3px solid black;
     border-radius: 20px;
-    padding: 20px
+    padding: 30px;
+    height: fit-content;
+}
+
+.a-provider {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.a-specialty {
+    margin-bottom: 2px;
+}
+.a-phone {
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.a-date {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.new-appt-button {
+    background-color: rgba(12, 127, 12, 0.581);
+    text-align: center;
+    cursor: pointer;
 }

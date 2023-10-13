@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+
+#delete-modal-container {
+    height: 350px;
+    width: 350px;
+    padding: 30px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 20px;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#delete-text-header {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#delete-med-text {
+    text-align: center;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+}
+
+#delete-med-text-small {
+    font-size: 14px;
+}
+
+#button-div-container {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    display: flex;
+
+}
+
+.delete-button {
+    margin: 0 10px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    width: 130px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+.confirm-button {
+    background-color: rgb(201, 62, 62);
+    color: white;
+    
+
+}
+
+.deny-button {
+    background-color:#2E97A7;
+    color: white;
+}
