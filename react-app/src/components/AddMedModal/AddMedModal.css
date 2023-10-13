@@ -3,7 +3,7 @@
 
 #add-med-modal-container {
     width: 600px;
-    height: 600px;
+    height: 800px;
     border-radius: 40px;
     background-color: #EEEEEE;
     font-family: 'Poppins', sans-serif;
@@ -29,18 +29,23 @@
     justify-content: center;
     align-items: center;
     margin: 20px;
+    height: 100%;
     width: 100%;
 }
 
-#add-med-label {
+#add-med-box {
     display: flex;
     align-items: center;
-    padding: 4px;
-    width: 240px;
+    padding: 20px 10px;
+    /* width: 240px; */
     height: 25px;
     background-color: white;
-}
+    border-radius: 8px;
+    font-size: 15px;
+    margin-right: 10px;
 
+    
+}
 
 
 .add-med-label {
@@ -56,6 +61,7 @@
 }
 #med-container, #strength-container {
     width: 50%;
+    margin-bottom: 30px;
 }
 
 .activity-label {
@@ -79,19 +85,37 @@
     cursor: pointer;
 }
 
-.options-container {
+.med-results-container {
 	/* border: 1px solid black; */
 	position: absolute;
-	top: 206px;
+	top: 260px;
 	width: 240px;
 	height: auto;
     max-height: 300px;
-	border-radius: 5px;
+	border-radius: 0px 8px 0px 8px;
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
 	overflow: hidden;
 	overflow-y: auto;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 4px 8px;
+}
+
+#med-search-input {
+    width: 205px;
+    height: 30px;
+    margin: 4px
+}
+
+#provider-search-input {
+    width: 205px;
+    height: 30px;
+    margin: 4px
+}
+
+
+#med-search-input::placeholder {
+    padding: 4px;
 }
 
 #med-search-box{
@@ -104,19 +128,27 @@
     font-size: 16px;
 }
 
-.select-input {
+.strength-input {
     padding: 4px;
-    margin: 0;
-    height: 26px;
+    margin-left: 10px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+
 }
 
 #med-strength-container {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: space-between;
+    justify-content: center;
+    align-items: center;
 }
+
+#med-container, #strength-container {
+    flex: 1;
+}
+
 #med-container, #strength-container, #directions-container, #indications-container, #provider-container {
     display: flex;
     flex-direction: column;
@@ -125,19 +157,31 @@
     width: 100%;
 }
 
+#directions-container {
+    margin-bottom: 30px;
+}
+
 .directionsResult {
     position: absolute;
-	top: 265px;
+	top: 365px;
 	height: fit-content;
     width: 522px;
     max-height: 300px;
-	border-radius: 5px;
+	border-radius: 0 8px 0 8px;
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
-
 	overflow: hidden;
 	overflow-y: auto;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#indication-input {
+    padding: 8px;
+    outline: none;
+    border: none;
+    width: 240px;
+    height: 40px;
+    border-radius: 8px;
 }
 
 .direction-text {
@@ -150,9 +194,21 @@
     cursor: pointer;
 }
 
-#add-directions-label {
+#add-directions-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px;
     width: 100%;
     background-color: white;
+    height: 40px;
+    border-radius: 8px;
+}
+
+#directions-search-input {
+    width: 495px;
+    height: 30px;
+    margin: 6px
 }
 
 
@@ -165,12 +221,26 @@
     display: none;
 }
 
+.radio-label {
+    padding: 6px;
+    
+}
+
+.option-container {
+    margin: 6px 0;
+}
+
+.option-container:hover {
+    background-color: #EEEEEE;
+}
+
 #indication-provider-container {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: space-between;
+    margin-bottom: 30px;
 }
 
 
@@ -187,20 +257,22 @@
     padding: 10px 2px;
 }
 #add-provider-label {
-    width: 240px;
-    border: 1px solid black;
+    width: 100%;
+    height: 40px;
+    border: none;
     background-color: white;
+    padding: 8px;
+    border-radius: 8px;
 }
 .providerResults {
     position: absolute;
-	top: 330px;
+	top: 470px;
 	height: fit-content;
-    width: 300px;
+    width: 260px;
     max-height: 300px;
 	border-radius: 5px;
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
-
 	overflow: hidden;
 	overflow-y: auto;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

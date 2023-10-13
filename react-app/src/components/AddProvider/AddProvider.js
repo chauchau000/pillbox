@@ -5,7 +5,7 @@ import './AddProvider.css'
 
 function AddProvider() {
     const allProviders = useSelector(state => state.providers)
-
+    
 
 
   return (

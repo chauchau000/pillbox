@@ -153,7 +153,6 @@ function EditMedModal({userMed}) {
                         <p className='p-error' key={idx}>{error}</p>
                     ))}
                 </div>
-
                     
                     <div id="strength-container">
                         <label className='edit-med-label'>
@@ -165,7 +164,7 @@ function EditMedModal({userMed}) {
 
                             <option value='' disabled selected>Strength</option>
                             {strengthOptions.map((strength, key) => (
-                                <option key={key} value={strength}>
+                                <option key={key} value={strength} >
                                     {strength}
                                 </option>
                             ))}

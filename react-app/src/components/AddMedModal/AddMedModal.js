@@ -130,7 +130,7 @@ function AddMedModal() {
     const handleProviderSelect = async (p) => {
         setProvider(p)
         setProviderResults(false)
-        const x =Object.values(allProvidersData).find(x => x.name === p).id
+        const x = Object.values(allProvidersData).find(x => x.name === p).id
         setProviderId(x)
     }
 
@@ -193,22 +193,23 @@ function AddMedModal() {
 
                 <div id="med-strength-container">
                     <div id='med-container'>
-                        <div className='add-med-header'>
+                        <div className='add-med-label'>
                             Medication
                         </div>
                         <div>
-                            <div id='add-med-label' className='add-med-label' onClick={(e) => { e.stopPropagation(); setMedResults(!medResults) }}>
+                            <div id='add-med-box' onClick={(e) => { e.stopPropagation(); setMedResults(!medResults) }}>
                                 {med ? med : "Select your medication ..."}
                             </div>
 
-                            <div className={medResults ? "options-container" : 'hidden'} ref={medRef}>
+                            <div className={medResults ? "med-results-container" : 'hidden'} ref={medRef}>
                                 <input type="text"
-                                    className="med-search-input"
-                                    onChange={handleMedsFilter} />
+                                    id="med-search-input"
+                                    onChange={handleMedsFilter}
+                                    placeholder='Search here' />
                                 {filteredMeds.map((m, key) => (
-                                    <div className="option" key={key}>
+                                    <div className="option-container" key={key}>
                                         <input type="radio" className="radio-input" id={m} name='medication' onChange={() => { handleMedSelect(m) }} />
-                                        <label htmlFor={m}>{m}</label>
+                                        <label className="radio-label" htmlFor={m}>{m}</label>
                                     </div>
                                 ))}
                             </div>
@@ -220,7 +221,7 @@ function AddMedModal() {
                             Strength
                         </label>
                         <select name='strength'
-                            className='select-input'
+                            className='strength-input'
                             onChange={handleStrengthSelect}>
 
                             <option value='' disabled selected>Strength</option>
@@ -234,24 +235,23 @@ function AddMedModal() {
                 </div>
 
                 <div id="directions-container">
-                    <div className='add-directions-label'>
+                    <div className='add-med-label'>
                         Directions
                     </div>
                     <div>
-                        <div id='add-directions-label'
-                            className='add-med-label'
+                        <div id='add-directions-box'
                             onClick={(e) => { e.stopPropagation(); setDirectionsResults(!directionsResults) }}>
                             {directions ? directions : "Select your directions ... "}
                         </div>
 
                         <div className={directionsResults ? "directionsResult" : 'hidden'} ref={directionsRef}>
                             <input type="text"
-                                className="directions-search-input"
+                                id="directions-search-input"
                                 onChange={handleDirectionsFilter} />
                             {filteredDirections.map((d, key) => (
-                                <div className="option" key={key}>
+                                <div className="option-container" key={key}>
                                     <input type="radio" className="radio-input" id={d} name='directions' onChange={() => { handleDirectionSelect(d) }} />
-                                    <label htmlFor={d}>{d}</label>
+                                    <label className="radio-label" htmlFor={d}>{d}</label>
                                 </div>
                             ))}
                         </div>
@@ -266,7 +266,7 @@ function AddMedModal() {
                             Indication
                         </label>
                         <input
-                            className='form-input'
+                            id='indication-input'
                             type="text"
                             value={indication}
                             onChange={(e) => setIndication(e.target.value)}
@@ -276,7 +276,7 @@ function AddMedModal() {
 
 
                     <div id="provider-container">
-                        <div className='add-provider-label'>
+                        <div className='add-med-label'>
                             Provider
                         </div>
                         <div>
@@ -288,12 +288,12 @@ function AddMedModal() {
 
                             <div className={providerResults ? "providerResults" : 'hidden'} ref={providerRef}>
                                 <input type="text"
-                                    className="provider-search-input"
+                                    id="provider-search-input"
                                     onChange={handleProviderFilter} />
                                 {filteredProviders.map((p, key) => (
-                                    <div className="option" key={key}>
+                                    <div className="option-container" key={key}>
                                         <input type="radio" className="radio-input" id={p} name='directions' onChange={() => { handleProviderSelect(p) }} />
-                                        <label htmlFor={p}>{p}</label>
+                                        <label className="radio-label" htmlFor={p}>{p}</label>
                                     </div>
                                 ))}
                             </div>
