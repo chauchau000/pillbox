@@ -34,7 +34,7 @@ def seed_meds():
         name='Rosuvastatin', strengths='5mg, 10mg, 20mg, 40mg', side_effects="nausea, indigestion, headache, muscle aches, nosebleed, diarreha, sore throat"
     )
     atorvastatin = Med(
-        name='Atorvastatin', strengths='5mg, 10mg, 20mg, 40mg', side_effects="nausea, indigestion, headache, muscle aches, nosebleed, diarreha, sore throat"
+        name='Atorvastatin', strengths='5mg, 10mg, 20mg, 40mg, 80mg', side_effects="nausea, indigestion, headache, muscle aches, nosebleed, diarreha, sore throat"
     )
     duloxetine = Med(
         name='Duloxetine', strengths='20mg, 30mg, 40mg, 60mg', side_effects="headache, nausea, diarrhea, dry mouth, increased sweating, feeling nervous, restless, fatigue, or having trouble sleeping (insomnia)"

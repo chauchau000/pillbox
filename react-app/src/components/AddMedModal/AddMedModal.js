@@ -292,7 +292,7 @@ function AddMedModal() {
                                     onChange={handleProviderFilter} />
                                 {filteredProviders.map((p, key) => (
                                     <div className="option-container" key={key}>
-                                        <input required type="radio" className="radio-input" id={p} name='directions' onChange={() => { handleProviderSelect(p) }} />
+                                        <input type="radio" className="radio-input" id={p} name='directions' onChange={() => { handleProviderSelect(p) }} />
                                         <label className="radio-label" htmlFor={p}>{p}</label>
                                     </div>
                                 ))}

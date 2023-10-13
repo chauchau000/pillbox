@@ -9,13 +9,12 @@ provider_routes = Blueprint('providers', __name__)
 
 
 @provider_routes.route('/')
-@login_required
 def providers():
     """
     Query for all providers and returns them in a list of provider dictionaries
     """
     providers = Provider.query.all()
-    return {'providers': [provider.to_dict() for provider in providers]}
+    return [provider.to_dict() for provider in providers]
 
 
 @provider_routes.route('/<int:id>')

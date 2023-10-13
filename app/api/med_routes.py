@@ -7,11 +7,10 @@ med_routes = Blueprint('meds', __name__)
 
 #user will not be able to add, edit, or delete stock meds
 @med_routes.route('/')
-@login_required
 def meds():
     """
     Query for all meds and returns them in a list of med dictionaries
     """
     meds = Med.query.all()
-    return {'meds': [med.to_dict() for med in meds]}
+    return [med.to_dict() for med in meds]
 

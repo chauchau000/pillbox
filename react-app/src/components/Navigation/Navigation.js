@@ -47,7 +47,7 @@ function Navigation({ isLoaded }) {
 						</p>
 					</NavLink>
 					<NavLink exact to="/blood-glucose" className='nav-item'>
-						<span class="material-symbols-outlined" id='nav-icon'>
+						<span className="material-symbols-outlined" id='nav-icon'>
 							water_drop
 						</span>
 						<p className="nav-item-text">

@@ -226,7 +226,7 @@ function EditMedModal({userMed}) {
                                 {provider ? provider : "Select your provider ..."}
                             </div>
 
-                            <div className={providerResults ? "providerResults" : 'hidden'} ref={providerRef}>
+                            <div className={providerResults ? "edit-providerResults" : 'hidden'} ref={providerRef}>
                                 <input type="text"
                                     className="provider-search-input"
                                     onChange={handleProviderFilter} />
