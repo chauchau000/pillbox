@@ -41,7 +41,6 @@ def new_provider():
             address=form.data['address'],
             specialty=form.data['specialty'],
             phone=form.data['phone'],
-            fax=form.data['fax'],
         )
         db.session.add(provider)
         db.session.commit()

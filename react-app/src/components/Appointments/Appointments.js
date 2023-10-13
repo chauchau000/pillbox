@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserAppointments } from '../../store/session';
 import { fetchAllProviders } from '../../store/providers';
 import { format } from 'date-fns';
+import AddNewApptModal from '../AddNewApptModal/AddNewApptModal';
+import OpenModalButton from '../OpenModalButton/OpenModalButton';
+import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal';
 import './Appointments.css';
 
 
@@ -10,7 +13,7 @@ function Appointments() {
   const dispatch = useDispatch();
   const userAppointmentsData = useSelector(state => state.session.appointments);
 
-  
+
 
 
 
@@ -33,12 +36,22 @@ function Appointments() {
             <div key={key} className="a-card-container">
               <p className='a-provider'>{a?.provider.name}</p>
               <p className='a-specialty'>{a?.provider.specialty}</p>
-              <p className='a-date'>{a?.date.slice(5,7)}/{a?.date.slice(8,10)}/{a?.date.slice(0,4)}</p>
+              <p className='a-phone'>({a?.provider.phone.slice(0, 3)}) {a?.provider.phone.slice(3, 6)}-{a?.provider.phone.slice(6, 10)}</p>
+              <p className='a-date'>{a?.date.slice(5, 7)}/{a?.date.slice(8, 10)}/{a?.date.slice(0, 4)}</p>
               <p className='a-time'>{a?.time}</p>
+              <div className="appt-edit-delete-container">
+                <OpenModalButton modalComponent={<ConfirmDeleteModal id={a.id} deleteItem='appt' />}
+                  buttonHTML={<span className="material-symbols-outlined">close</span>}
+                  className='med-delete'
+                />
+              </div>
             </div>
           ))}
+          <OpenModalButton className='a-card-container new-appt-button' modalComponent={<AddNewApptModal />} buttonText="Add new appointment" />
 
         </div>
+
+
       </div>
 
     </div>

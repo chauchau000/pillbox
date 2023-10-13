@@ -12,4 +12,3 @@ class ProviderForm(FlaskForm):
     specialty = StringField(
         'specialty', validators=[DataRequired()])
     phone = StringField('phone', validators=[DataRequired(), Length(10, 10, "Phone number must be 10 digits")])
-    fax = StringField('fax', validators=[DataRequired(), Length(10, 10, "Fax number must be 10 digits")])

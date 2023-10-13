@@ -53,7 +53,8 @@ class User(db.Model, UserMixin):
 
     def my_appointments(self):
         appointments = [appointment.to_dict() for appointment in self.appointments]
-        return appointments
+        sorted_appts = sorted(appointments, key=lambda a: (a['date'], a['time']))
+        return sorted_appts
 
     def my_glucose(self):
         glucose = [reading.to_dict() for reading in self.glucose_readings]

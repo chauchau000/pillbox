@@ -15,7 +15,6 @@ class Provider(db.Model):
     address = db.Column(db.String(200), nullable=False)
     specialty = db.Column(db.String(100))
     phone = db.Column(db.String(50), nullable=False)
-    fax = db.Column(db.String(50))
 
     patients = relationship("User", secondary=users_providers, back_populates='providers')
     appointments = relationship("Appointment", back_populates='provider')
@@ -27,5 +26,4 @@ class Provider(db.Model):
             'address': self.address,
             'specialty': self.specialty,
             'phone': self.phone,
-            'fax': self.fax
         }
