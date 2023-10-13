@@ -183,7 +183,7 @@ function EditMedModal({userMed}) {
                             {directions ? directions : "Select your directions ... "}
                         </div>
 
-                        <div className={directionsResults ? "directionsResult" : 'hidden'} ref={directionsRef}>
+                        <div className={directionsResults ? "edit-directionsResult" : 'hidden'} ref={directionsRef}>
                             <input type="text"
                                 className="directions-search-input"
                                 onChange={handleDirectionsFilter} />

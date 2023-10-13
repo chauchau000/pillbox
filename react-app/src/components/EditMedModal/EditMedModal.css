@@ -54,6 +54,7 @@
     align-items: center;
     margin: 20px 0;
 }
+
 #med-container, #strength-container {
     width: 50%;
 }
@@ -125,7 +126,7 @@
     width: 100%;
 }
 
-.directionsResult {
+.edit-directionsResult {
     position: absolute;
 	top: 265px;
 	height: fit-content;
@@ -191,7 +192,7 @@
     border: 1px solid black;
     background-color: white;
 }
-.providerResults {
+.edit-providerResults {
     position: absolute;
 	top: 330px;
 	height: fit-content;
