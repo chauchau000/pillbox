@@ -37,11 +37,10 @@ function HomePage() {
   return (
     <div id='home-page-container'>
       <MedChart />
-      <div>
-        <p id="welcome-text">Welcome {user?.first_name}!</p>
-      </div>
+
 
       <table id="med-table">
+        <p id="welcome-text">Welcome {user?.first_name}! Your medication list includes:</p>
         <thead>
 
           <tr id='med-table-header-container'>
@@ -84,10 +83,12 @@ function HomePage() {
             </tr>
           ))}
         </tbody>
-
-      </table>
+            <div id="add-med-button-container">
 
       <OpenModalButton modalComponent={<AddMedModal />} buttonText='Add a new medication' className='add-med-modal' />
+            </div>
+      </table>
+
 
 
 

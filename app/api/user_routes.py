@@ -79,7 +79,6 @@ def add_user_med(med_id, provider_id):
 
     if form.validate_on_submit():
         user = User.query.get(current_user.id)
-        med_list = user.my_meds()
 
         new_med = User_Med(
             med_id=med_id,

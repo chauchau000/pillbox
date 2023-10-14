@@ -144,6 +144,7 @@ function AddMedModal() {
             indication,
             isActive,
         }
+        console.log(newMed)
         const data = await dispatch(createUserMed(med_id, provider_id, newMed));
         // console.log(newMed)
         if (data.errors) {
@@ -196,24 +197,24 @@ function AddMedModal() {
                         <div className='add-med-label'>
                             Medication
                         </div>
-                        <div>
-                            <div id='add-med-box' onClick={(e) => { e.stopPropagation(); setMedResults(!medResults) }}>
-                                {med ? med : "Select your medication ..."}
-                            </div>
 
-                            <div className={medResults ? "med-results-container" : 'hidden'} ref={medRef}>
-                                <input type="text"
-                                    id="med-search-input"
-                                    onChange={handleMedsFilter}
-                                    placeholder='Search here' />
-                                {filteredMeds.map((m, key) => (
-                                    <div className="option-container" key={key}>
-                                        <input type="radio" className="radio-input" id={m} name='medication' onChange={() => { handleMedSelect(m) }} />
-                                        <label className="radio-label" htmlFor={m}>{m}</label>
-                                    </div>
-                                ))}
-                            </div>
+                        <div id='add-med-box' onClick={(e) => { e.stopPropagation(); setMedResults(!medResults) }}>
+                            {med ? med : "Select your medication ..."}
                         </div>
+
+                        <div className={medResults ? "med-results-container" : 'hidden'} ref={medRef}>
+                            <input type="text"
+                                id="med-search-input"
+                                onChange={handleMedsFilter}
+                                placeholder='Search here' />
+                            {filteredMeds.map((m, key) => (
+                                <div className="option-container" key={key} onClick={() => { handleMedSelect(m) }}>
+                                    <input type="radio" className="radio-input" id={m} name='medication' />
+                                    <label className="radio-label" htmlFor={m}>{m}</label>
+                                </div>
+                            ))}
+                        </div>
+
 
                     </div>
                     <div id="strength-container">
@@ -238,7 +239,6 @@ function AddMedModal() {
                     <div className='add-med-label'>
                         Directions
                     </div>
-                    <div>
                         <div id='add-directions-box'
                             onClick={(e) => { e.stopPropagation(); setDirectionsResults(!directionsResults) }}>
                             {directions ? directions : "Select your directions ... "}
@@ -247,15 +247,15 @@ function AddMedModal() {
                         <div className={directionsResults ? "directionsResult" : 'hidden'} ref={directionsRef}>
                             <input type="text"
                                 id="directions-search-input"
+                                placeholder='Search directions'
                                 onChange={handleDirectionsFilter} />
                             {filteredDirections.map((d, key) => (
-                                <div className="option-container" key={key}>
-                                    <input type="radio" className="radio-input" id={d} name='directions' onChange={() => { handleDirectionSelect(d) }} />
+                                <div className="option-container" key={key} onClick={() => { handleDirectionSelect(d) }}>
+                                    <input type="radio" className="radio-input" id={d} name='directions' />
                                     <label className="radio-label" htmlFor={d}>{d}</label>
                                 </div>
                             ))}
                         </div>
-                    </div>
                 </div>
 
 
@@ -267,6 +267,7 @@ function AddMedModal() {
                         </label>
                         <input
                             id='indication-input'
+                            placeholder='Type here ...'
                             type="text"
                             value={indication}
                             onChange={(e) => setIndication(e.target.value)}
@@ -281,7 +282,6 @@ function AddMedModal() {
                         </div>
                         <div>
                             <div id='add-provider-label'
-                                className='add-provider-label'
                                 onClick={(e) => { e.stopPropagation(); setProviderResults(!providerResults) }}>
                                 {provider ? provider : "Select your provider ..."}
                             </div>
@@ -289,6 +289,8 @@ function AddMedModal() {
                             <div className={providerResults ? "providerResults" : 'hidden'} ref={providerRef}>
                                 <input type="text"
                                     id="provider-search-input"
+                                    placeholder='Search provider'
+
                                     onChange={handleProviderFilter} />
                                 {filteredProviders.map((p, key) => (
                                     <div className="option-container" key={key}>
@@ -326,11 +328,11 @@ function AddMedModal() {
                     <div id='med-active-container' >
                         <div id='active-choice-1'>
 
-                            <input type="radio" id="active" name="active" value="active" onChange={() => setIsActive('True')} />
+                            <input type="radio" id="active" name="active" value="active" onChange={() => setIsActive('true')} />
                             <label className='activity-label' htmlFor="active">Active</label>
                         </div>
                         <div id="active-choice-2">
-                            <input type="radio" id="inactive" name="active" value="inactive" onChange={() => setIsActive('False')} />
+                            <input type="radio" id="inactive" name="active" value="inactive" onChange={() => setIsActive('false')} />
                             <label className='activity-label' htmlFor="inactive">Inactive</label>
                         </div>
                     </div>

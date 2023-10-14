@@ -18,8 +18,16 @@
 
 }
 
+#med-table {
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
 #welcome-text {
-    margin: 20px;
+    margin: 10px 0;
+    padding: 0 15px 10px 10px;
     font-size: 20px;
     font-weight: 700;
 }
@@ -29,7 +37,8 @@
     padding: 25px 0;
     height: 30px;
     border-radius: 8px;
-    background-color: #1aacac78;
+    /* background-color: #1aacac78; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
@@ -37,8 +46,9 @@
     padding: 38px 0;
     height: 55px;
     border-radius: 8px;
-    background-color: #1aacac78;
-    margin: 7px 0;
+    /* background-color: #1aacac78; */
+    margin: 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .med-table-item {
@@ -135,19 +145,31 @@
 
 
 .add-med-modal {
-    background-color:rgb(201, 62, 62);
     border-radius: 15px;
-    width: fit-content;
-    height: fit-content;
     margin: 5px 0;
-    padding: 15px;
     font-family: 'Poppins', sans-serif;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.138);
     display: flex;
     justify-content: center;
     align-items: center;
+
+
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    background-color: #1AACAC ;
+    outline: none;
+    border: none;
+    width: 15rem;
+    height: 4rem;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .add-med-modal:hover{
     cursor: pointer;
+}
+
+#add-med-button-container {
+    display: flex;
+    flex-direction: row-reverse;
 }

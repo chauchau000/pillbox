@@ -4,9 +4,19 @@
     padding: 0;
 }
 
+#chart-container {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, #0000000f 0px 0px 0px 1px; */
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+
+
+}
+
 #schedule-container {
-    margin: 20px;
-    border: 1px solid black;
     height: fit-content;
     min-height: 500px;
     padding: 10px;
@@ -16,14 +26,32 @@
     /* background-color: ; */
 }
 
+#prn-container {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    padding: 10px;
+    margin: 5px 20px 20px 20px;
+    border-radius: 20px;
+
+
+}
+
+.section-container,
+#prn-container {
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
 .section-container {
     flex: 1;
-    border: 1px solid black;
     padding: 10px;
-    margin: 10px;
+    margin: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 20px;
+
 }
 
 .section-title {
@@ -36,18 +64,73 @@
 }
 
 
-.med-icon-div {
-    width: 90px;
-    height: 90px;
+.med-icon-div,
+.prn-icon-div {
+    width: 8rem;
+    height: 6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    border: 2px solid #EEEEEE;
     margin: 10px;
     padding: 20px;
-    border-radius: 50%;
+    border-radius: 30px;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; */
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
 }
+
+.med-container {
+    width: 8rem;
+    height: 6rem;
+    perspective: 800px;
+    margin: 7px 0;
+}
+
+.med-container:hover>.med-card {
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+.med-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #EEEEEE;
+    padding: 20px;
+    border-radius: 30px;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; */
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+    /* transition: transform 1500ms; */
+    transition: all 1.5s cubic-bezier(0.7, -0.5, 0.3, 1.8);
+    transform-style: preserve-3d;
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
+    padding: 10px;
+    text-align: center;
+}
+
 
 .med-icon-text {
     font-size: 0.8rem;

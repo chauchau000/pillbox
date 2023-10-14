@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
+
 #add-med-modal-container {
     width: 600px;
     height: 800px;
-    border-radius: 40px;
-    background-color: #EEEEEE;
+    background-color: white;
     font-family: 'Poppins', sans-serif;
-    padding: 40px 40px 10px 40px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: rgba(94, 93, 93, 0.654) 0px 5px 15px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
 }
 
 #add-med-title {
-    font-size: 30px;
-}
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;}
 
 .add-med-modal:hover{
     cursor: pointer;
@@ -26,55 +30,37 @@
 #add-med-form-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 20px;
-    height: 100%;
-    width: 100%;
+    justify-content: space-around;
+    /* border: 3px solid black; */
+}
+
+#indication-input::placeholder {
+    color: white;
+    font-size: 16px;
 }
 
 #add-med-box {
-    display: flex;
-    align-items: center;
-    padding: 20px 10px;
-    /* width: 240px; */
-    height: 25px;
-    background-color: white;
-    border-radius: 8px;
-    font-size: 15px;
+    background-color:#2E97A7;
+    color: white;
+    padding: 10px;
     margin-right: 10px;
+    border-radius: 8px;
+    width: 16rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    height: 2.8rem;
 
-    
 }
 
 
 .add-med-label {
-    padding: 5px 0;
+    margin: 0 0 5px 0 ;
+    padding: 0 5px;
 }
 
-#med-active-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-#med-container, #strength-container {
-    width: 50%;
-    margin-bottom: 30px;
-}
+#med-container {
+    position: relative;
 
-.activity-label {
-    margin: 5px;
-}
-
-#active-choice-1, #active-choice-2 {
-    margin: 0 10px
-}
-
-.form-input{
-    width: 240px;
-    height: 25px;
 }
 
 .hidden {
@@ -86,37 +72,44 @@
 }
 
 .med-results-container {
-	/* border: 1px solid black; */
+    /* border: 1px solid black; */
 	position: absolute;
-	top: 260px;
-	width: 240px;
+	top: 80px;
+    width: 16rem;
 	height: auto;
     max-height: 300px;
-	border-radius: 0px 8px 0px 8px;
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+	border-radius: 5px;
+	background-color: #2E97A7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	overflow: hidden;
 	overflow-y: auto;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    padding: 4px 8px;
+    z-index: 100;
 }
 
 #med-search-input {
-    width: 205px;
-    height: 30px;
-    margin: 4px
+    width: 14rem;
+    height: 35px;
+    margin: 8px;
+    padding: 8px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
 }
 
 #provider-search-input {
-    width: 205px;
-    height: 30px;
-    margin: 4px
+
+    width: 13rem;
+    height: 35px;
+    margin: 8px;
+    padding: 8px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+
 }
 
-
-#med-search-input::placeholder {
-    padding: 4px;
-}
 
 #med-search-box{
     position: absolute;
@@ -129,12 +122,19 @@
 }
 
 .strength-input {
+    font-size: 16px;
     padding: 4px;
-    margin-left: 10px;
-    height: 40px;
+    height: 2.8rem;
     border-radius: 8px;
     border: none;
-
+    background-color:#2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 14rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
+    
 }
 
 #med-strength-container {
@@ -143,8 +143,17 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 30px;
+    margin-bottom: 30px;
+
 }
 
+#strength-container, #provider-container {
+    margin-left: 10px;
+}
 #med-container, #strength-container {
     flex: 1;
 }
@@ -154,34 +163,44 @@
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    width: 100%;
 }
 
 #directions-container {
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 30px;
     margin-bottom: 30px;
+    position: relative;
+
 }
 
+
 .directionsResult {
+
     position: absolute;
-	top: 365px;
-	height: fit-content;
-    width: 522px;
+	top: 95px;
+	width: 31.5rem;
+	height: auto;
     max-height: 300px;
-	border-radius: 0 8px 0 8px;
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+	border-radius: 5px;
+	background-color: #2E97A7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	overflow: hidden;
 	overflow-y: auto;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: 50
 }
 
 #indication-input {
-    padding: 8px;
     outline: none;
     border: none;
-    width: 240px;
-    height: 40px;
+    background-color:#2E97A7;
+    color: white;
+    padding: 10px;
+    margin-right: 10px;
     border-radius: 8px;
+    width: 16rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    height: 2.8rem;
 }
 
 .direction-text {
@@ -195,20 +214,26 @@
 }
 
 #add-directions-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 8px;
+
     width: 100%;
-    background-color: white;
-    height: 40px;
+    background-color:#2E97A7;
+    color: white;
+    padding: 10px;
     border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    height: 2.8rem;
+
 }
 
 #directions-search-input {
-    width: 495px;
-    height: 30px;
-    margin: 6px
+    width: 29.5rem;
+    height: 35px;
+    margin: 8px;
+    padding: 8px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
 }
 
 
@@ -222,16 +247,16 @@
 }
 
 .radio-label {
-    padding: 6px;
-    
+    color: white;
+    padding: 6px;    
 }
 
 .option-container {
-    margin: 6px 0;
+    padding: 6px;
 }
 
 .option-container:hover {
-    background-color: #EEEEEE;
+    background-color: #1AACAC;
 }
 
 #indication-provider-container {
@@ -240,9 +265,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: space-between;
+
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 30px;
     margin-bottom: 30px;
 }
 
+#provider-container {
+    position: relative;
+}
 
 #activity-provider-container {
     display: flex;
@@ -257,38 +289,66 @@
     padding: 10px 2px;
 }
 #add-provider-label {
-    width: 100%;
-    height: 40px;
     border: none;
-    background-color: white;
-    padding: 8px;
+
+    font-size: 16px;
+    padding: 4px;
+    height: 2.8rem;
     border-radius: 8px;
+    border: none;
+    background-color:#2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 14rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
 }
 .providerResults {
     position: absolute;
-	top: 470px;
-	height: fit-content;
-    width: 260px;
+	top: 5rem;
+	height: auto;
+    width: 14rem;
     max-height: 300px;
 	border-radius: 5px;
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
+
+	background-color: #2E97A7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	overflow: hidden;
 	overflow-y: auto;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 
+#med-active-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+
+.activity-label {
+    margin: 5px;
+}
+
+#active-choice-1, #active-choice-2 {
+    margin: 0 10px
+}
 
 #add-med-button {
+    margin-top: 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    background-color: #1AACAC ;
+    outline: none;
+    border: none;
+    width: 150px;
     padding: 10px;
-    border-radius: 5px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    background-color: rgb(225, 105, 105);
-    font-size: 20px;
-    font-weight: 600;
-    margin-top: 60px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 
 #add-provider-btn {
     text-align: center;
