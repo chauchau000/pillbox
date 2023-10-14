@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, IntegerField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, InputRequired
 
 
 class UserMedForm(FlaskForm):
@@ -9,7 +9,7 @@ class UserMedForm(FlaskForm):
     indication = StringField(
         'indication', validators=[DataRequired()])
     isActive = BooleanField(
-        'isActive', validators=[DataRequired()])
+        'isActive', validators=[InputRequired()])
     strength = StringField(
         'strength', validators=[DataRequired()]
     )
