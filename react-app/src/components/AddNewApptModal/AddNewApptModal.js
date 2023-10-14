@@ -8,14 +8,10 @@ import './AddNewApptModal.css';
 function AddNewApptModal() {
     const dispatch = useDispatch();
     const allProvidersData = useSelector(state => state.providers)
-    const allProviders = Object.values(allProvidersData).map(p => p.name).sort() // array of med names
+    const allProviders = Object.values(allProvidersData).map(p => p.name).sort() // array of provider names
 
     const [provider, setProvider] = useState("");
     const [provider_id, setProviderId] = useState(0);
-    // const [name, setName] = useState('');
-    // const [address, setAddress] = useState('');
-    // const [specialty, setSpecialty] = useState('');
-    // const [phone, setPhone] = useState('');
 
     const [date, setDate] = useState('');
     const [time, setTime] = useState('')

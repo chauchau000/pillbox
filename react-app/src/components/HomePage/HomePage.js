@@ -10,6 +10,9 @@ import AddMedModal from '../AddMedModal/AddMedModal'
 import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal'
 import MedChart from '../MedChart/MedChart'
 import EditMedModal from '../EditMedModal/EditMedModal'
+import AddProvider from '../AddProvider/AddProvider'
+
+
 
 function HomePage() {
   const dispatch = useDispatch()
@@ -74,7 +77,7 @@ function HomePage() {
                 />
               </th>
               <th className="med-table-item med-delete delete-item">
-                <OpenModalButton modalComponent={<ConfirmDeleteModal id={med.id} deleteItem='med'/>}
+                <OpenModalButton modalComponent={<ConfirmDeleteModal id={med.id} deleteItem='med' />}
                   buttonHTML={<span className="material-symbols-outlined">close</span>}
                   className='med-delete'
                 />
@@ -83,10 +86,13 @@ function HomePage() {
             </tr>
           ))}
         </tbody>
-            <div id="add-med-button-container">
+        <div id="bottom-button-container">
 
-      <OpenModalButton modalComponent={<AddMedModal />} buttonText='Add a new medication' className='add-med-modal' />
-            </div>
+          <OpenModalButton modalComponent={<AddMedModal />} buttonText='Add a new medication' className='add-med-modal' />
+          <OpenModalButton modalComponent={<AddProvider />} buttonText='Add a new provider' className='add-provider-modal' />
+        </div>
+
+
       </table>
 
 

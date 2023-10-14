@@ -16,6 +16,15 @@ const AM_DIRECTIONS = [
 	'Take 1 tablet every 6 hours', // AM NOON PM QHS
 	'Take 1 tablet every 8 hours', // AM NOON QHS
 	'Take 1 tablet every 12 hours', // AM HS
+
+	'Take 1 capsule once daily', //
+	'Take 1 capsule once daily in the morning', //AM
+	'Take 1 capsule twice daily', //AM PM
+	'Take 1 capsule three times daily', // AM NOON PM
+	'Take 1 capsule four times daily', // AM NOON PM QHS
+	'Take 1 capsule every 6 hours', // AM NOON PM QHS
+	'Take 1 capsule every 8 hours', // AM NOON QHS
+	'Take 1 capsule every 12 hours', // AM HS
 ]
 
 const NOON_DIRECTIONS = [	
@@ -25,6 +34,13 @@ const NOON_DIRECTIONS = [
 	'Take 1 tablet four times daily', // AM NOON PM QHS
 	'Take 1 tablet every 6 hours', // AM NOON PM QHS
 	'Take 1 tablet every 8 hours', // AM NOON QHS
+
+	'Take 1 capsule once daily at lunch', //
+	'Take 1 capsule once daily at noon', //
+	'Take 1 capsule three times daily', // AM NOON PM
+	'Take 1 capsule four times daily', // AM NOON PM QHS
+	'Take 1 capsule every 6 hours', // AM NOON PM QHS
+	'Take 1 capsule every 8 hours', // AM NOON QHS
 ]
 
 const PM_DIRECTIONS = [
@@ -33,6 +49,12 @@ const PM_DIRECTIONS = [
 	'Take 1 tablet three times daily', // AM NOON PM
 	'Take 1 tablet four times daily', // AM NOON PM QHS
 	'Take 1 tablet every 6 hours', // AM NOON PM QHS
+
+	'Take 1 capsule once daily in the evening', //PM
+	'Take 1 capsule twice daily', //AM PM
+	'Take 1 capsule three times daily', // AM NOON PM
+	'Take 1 capsule four times daily', // AM NOON PM QHS
+	'Take 1 capsule every 6 hours', // AM NOON PM QHS
 ]
 
 const HS_DIRECTIONS = [
@@ -41,14 +63,29 @@ const HS_DIRECTIONS = [
 	'Take 1 tablet every 6 hours', // AM NOON PM QHS
 	'Take 1 tablet every 8 hours', // AM NOON QHS
 	'Take 1 tablet every 12 hours', // AM HS
+
+	'Take 1 capsule once daily at bedtime', //HS
+	'Take 1 capsule four times daily', // AM NOON PM QHS
+	'Take 1 capsule every 6 hours', // AM NOON PM QHS
+	'Take 1 capsule every 8 hours', // AM NOON QHS
+	'Take 1 capsule every 12 hours', // AM HS
 ]
 
 const PRN_DIRECTIONS = [
+	'Take 1 capsule every 6 hours as needed',
+	'Take 1 capsule every 4 hours as needed',
+	'Take 1 capsule every 8 hours as needed',
+	'Take 1 capsule every 12 hours as needed',
+	'Take 1 capsule every 2 hours as needed',
+	'Take 1 capsule every hour as needed',
+
 	'Take 1 tablet every 6 hours as needed',
 	'Take 1 tablet every 4 hours as needed',
 	'Take 1 tablet every 8 hours as needed',
 	'Take 1 tablet every 12 hours as needed',
 	'Take 1 tablet every 2 hours as needed',
+	'Take 1 tablet every hour as needed',
+
 ]
 
 

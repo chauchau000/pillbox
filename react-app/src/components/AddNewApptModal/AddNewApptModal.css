@@ -10,7 +10,6 @@
     font-family: 'Poppins', sans-serif;
     border-radius: 20px;
     box-shadow: rgba(94, 93, 93, 0.654) 0px 5px 15px;
-
 }
 
 #add-appt-form-container {
@@ -125,7 +124,7 @@
     cursor: pointer;
 }
 
-#add-appt-button {
+#add-appt-button{
     margin-top: 40px;
     border-radius: 10px;
     color: white;

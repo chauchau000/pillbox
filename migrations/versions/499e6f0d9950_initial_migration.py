@@ -32,9 +32,10 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=100), nullable=False),
     sa.Column('address', sa.String(length=200), nullable=False),
+    sa.Column('city', sa.String(length=200), nullable=False),
+    sa.Column('state', sa.String(length=200), nullable=False),
     sa.Column('specialty', sa.String(length=100), nullable=True),
     sa.Column('phone', sa.String(length=50), nullable=False),
-    sa.Column('fax', sa.String(length=50), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users',

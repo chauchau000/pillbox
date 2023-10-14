@@ -62,13 +62,14 @@
     align-items: center;
     border-radius: 40px;
     height: 45px;
-    width: 125px
-
+    width: 125px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .med-green-active {
     background-color: rgba(44, 149, 44, 0.55);
-    color: rgb(4, 87, 4)
+    color: rgb(4, 87, 4);
+    
 }
 
 .med-red-active {
@@ -81,6 +82,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .dot {
     font-size: 40px;
@@ -144,9 +146,9 @@
 
 
 
-.add-med-modal {
+.add-med-modal, .add-provider-modal {
     border-radius: 15px;
-    margin: 5px 0;
+    margin: 5px 0px;
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
@@ -163,13 +165,18 @@
     height: 4rem;
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
 }
 
-.add-med-modal:hover{
+.add-med-modal {
+    margin-left: 15px;
+}
+
+.add-med-modal:hover, .add-provider-modal:hover{
     cursor: pointer;
 }
 
-#add-med-button-container {
+#bottom-button-container {
     display: flex;
     flex-direction: row-reverse;
 }
