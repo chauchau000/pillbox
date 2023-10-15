@@ -211,6 +211,8 @@ export const signUp = (first_name, last_name, dob, email, password) => async (di
 	}
 };
 
+//fetch User values - user meds, appointments, glucose
+
 
 export const fetchUserMeds = () => async (dispatch) => {
 	const response = await fetch('/api/users/meds')
@@ -245,8 +247,7 @@ export const fetchUserProviders = () => async dispatch => {
 
 	if (response.ok) {
 		const data = await response.json();
-		dispatch(getUserProviders(data));
-		return data
+		await dispatch(getUserProviders(data));
 	} else {
 		const errors = await response.json()
 		return errors
@@ -265,6 +266,8 @@ export const fetchGlucose = () => async dispatch => {
 		return errors
 	}
 }
+
+//User Meds
 
 export const createUserMed = (med_id, provider_id, newMed) => async dispatch => {
 	const res = await fetch(`/api/users/meds/${med_id}/${provider_id}`, {
@@ -339,6 +342,8 @@ export const editMed = (userMed_id, newMed) => async dispatch => {
 	}
 }
 
+//Appointments
+
 export const createAppt = (provider_id, appt) => async dispatch => {
 	const res = await fetch(`/api/appointments/${provider_id}`, {
 		method: "POST",
@@ -358,8 +363,85 @@ export const createAppt = (provider_id, appt) => async dispatch => {
 	}
 }
 
+export const editAppt = (appt_id, newAppt) => async dispatch => {
+	const res = await fetch(`/api/appointments/${appt_id}`, {
+		method: "PUT",
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newAppt)
+	})
+
+	if (res.ok) {
+		const data = await res.json();
+		return data
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
+
 export const deleteAppt = (id) => async dispatch => {
 	const res = await fetch(`/api/appointments/${id}`, {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		}
+	})
+
+	if (res.ok) {
+		const data = await res.json()
+		// console.log(data)
+		return data
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
+
+//Glucose 
+
+export const createGlucose = (date,time,level,notes) => async (dispatch) => {
+	const res = await fetch("/api/glucose/", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({date,time,level,notes})
+	})
+
+	if (res.ok) {
+		const data = await res.json();
+		console.log('Glucose level created')
+		return data
+	} else {
+		const errors = await res.json();
+		console.log(errors)
+		return errors;
+	}
+}
+
+
+export const editGlucose = (glucose_id, newGlucose) => async dispatch => {
+	const res = await fetch(`/api/glucose/${glucose_id}`, {
+		method: "PUT",
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newGlucose)
+	})
+
+	if (res.ok) {
+		const data = await res.json();
+		return data
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
+
+export const deleteGlucose = (id) => async dispatch => {
+	const res = await fetch(`/api/glucose/${id}`, {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",

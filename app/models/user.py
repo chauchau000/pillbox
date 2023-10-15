@@ -58,5 +58,7 @@ class User(db.Model, UserMixin):
 
     def my_glucose(self):
         glucose = [reading.to_dict() for reading in self.glucose_readings]
-        return glucose
+        sorted_glucose = sorted(glucose, key=lambda g: (g['date'], g['time']), reverse=True)
+
+        return sorted_glucose
 
