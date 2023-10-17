@@ -4,7 +4,7 @@
 
 #add-med-modal-container {
     width: 40rem;
-    height: 45rem;
+    height: fit-content;
     position: relative;
     background-color: white;
     font-family: 'Poppins', sans-serif;
@@ -287,19 +287,38 @@
     margin-bottom: 30px;
 }
 
-#provider-container {
-    position: relative;
+
+
+#addmed-activity-provider-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 30px;
 }
 
-#activity-provider-container {
-    display: flex;
+#provider-container {
+    position: relative;
 }
 
 #add-provider-container {
     flex: 1
 }
 
+#addmedform-provider-container, #med-active-container {
+    flex: 1
+}
+
+#addmedform-provider-container {
+    margin: 15px;
+
+}
+
 #add-provider-text {
+    text-align: center;
     font-size: 12px;
     padding: 10px 2px;
 }
@@ -337,11 +356,25 @@
 
 
 #med-active-container {
-    flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 20px 0;
+    width: 100%;
+    /* border: 3px solid black; */
+}
+
+#active-inactive-radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#addmedform-provider-container {
+    display: flex;
+    justify-content: center;
+    /* border: 3px solid black; */
 }
 
 
@@ -380,16 +413,9 @@
 
 
 /* ERROR HANDLINE CSS */
-#errors-div {
+.errors {
     /* border: 1px solid black; */
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-    margin: 0;
-}
-
-.p-error {
     font-size: 14px;
-    margin: 5px 0;
+    margin: 5px;
     color: red;
 }
