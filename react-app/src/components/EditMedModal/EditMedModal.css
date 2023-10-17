@@ -1,246 +1,206 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
-
 #edit-med-modal-container {
-    width: 600px;
-    height: 600px;
-    border-radius: 40px;
-    background-color: #EEEEEE;
+    height: fit-content;
+    width: 30rem;
+    background-color: white;
+    position: relative;
+
+    padding: 40px;
     font-family: 'Poppins', sans-serif;
-    padding: 40px 40px 10px 40px;
+    border-radius: 20px;
+    box-shadow: rgba(94, 93, 93, 0.654) 0px 5px 15px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
 }
 
 #edit-med-title {
-    font-size: 30px;
-}
-
-.edit-med-modal:hover{
-    cursor: pointer;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
 }
 
 #edit-med-form-container {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 20px;
-    width: 100%;
+    justify-content: space-around;
+    /* border: 3px solid black; */
 }
-
-#edit-med-label {
-    display: flex;
-    align-items: center;
-    padding: 4px;
-    width: 240px;
-    height: 25px;
-    background-color: white;
-}
-
-
 
 .edit-med-label {
-    padding: 5px 0;
+    margin: 0 0 5px 0;
+    padding: 0 5px;
 }
 
-#med-active-container {
-    flex: 1;
+#editmed-strength-container, #editmed-directions-container, #editmed-indications-container, #editmed-provider-container, #editmed-active-container{
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 30px;
+    margin-bottom: 30px;
+    position: relative;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+
 }
 
-#med-container, #strength-container {
-    width: 50%;
+#editmed-radio-inputs {
+    display: flex;
+    flex-direction: row;
 }
 
-.activity-label {
-    margin: 5px;
+.editmed-strength-input {
+    font-size: 16px;
+    padding: 4px;
+    height: 2.8rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 16rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
+
 }
 
-#active-choice-1, #active-choice-2 {
-    margin: 0 10px
+#edit-directions-box {
+
+    width: 22rem;
+    background-color: #2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 2.8rem;
+
 }
 
-.form-input{
-    width: 240px;
-    height: 25px;
-}
 
-.hidden {
-    display: none
-}
+.edit-directionsResult {
 
-.dataResults-container {
-    cursor: pointer;
-}
-
-.options-container {
-	/* border: 1px solid black; */
-	position: absolute;
-	top: 206px;
-	width: 240px;
-	height: auto;
-    max-height: 300px;
-	border-radius: 5px;
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
-	overflow: hidden;
-	overflow-y: auto;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-#med-search-box{
     position: absolute;
+    top: 95px;
+    width: 22rem;
+    height: auto;
+    max-height: 300px;
+    border-radius: 5px;
+    background-color: #2E97A7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 50
 }
 
-.med-result {
-    padding: 4px 10px;
-    margin: 0;
+#edit-directions-search-input {
+    width: 20rem;
+    height: 35px;
+    margin: 8px;
+    padding: 8px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.editmed-form-input {
+    outline: none;
+    border: none;
+    background-color: #2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 16rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 2.8rem;
     font-size: 16px;
 }
 
-.select-input {
-    padding: 4px;
-    margin: 0;
-    height: 26px;
-}
-
-#med-strength-container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: space-between;
-}
-#med-container, #strength-container, #directions-container, #indications-container, #provider-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    width: 100%;
-}
-
-.edit-directionsResult {
-    position: absolute;
-	top: 265px;
-	height: fit-content;
-    width: 522px;
-    max-height: 300px;
-	border-radius: 5px;
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
-
-	overflow: hidden;
-	overflow-y: auto;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.direction-text {
-    padding: 4px 10px;
-    margin: 0;
-    font-size: 14px;
-}
-
-.direction-text:hover {
-    cursor: pointer;
-}
-
-#edit-directions-label {
-    width: 100%;
-    background-color: white;
-}
-
-
-#directions-input {
-    height: 25px;
-    width: 100%
-    
-}
 .radio-input {
     display: none;
 }
 
-#indication-provider-container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: space-between;
+.radio-label {
+    color: white;
+    padding: 6px;
+}
+
+.editmed-option {
+    padding: 6px;
 }
 
 
-#activity-provider-container {
-    display: flex;
+#edit-provider-label {
+    border: none;
+    font-size: 16px;
+    padding: 4px;
+    height: 2.8rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 16rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
+}
+
+.edit-providerResults {
+    position: absolute;
+    top: 6rem;
+    height: auto;
+    max-height: 14rem;
+    width: 16rem;
+    border-radius: 5px;
+    background-color: #2E97A7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 40
+}
+
+.edit-provider-search-input {
+
+    width: 14rem;
+    height: 35px;
+    margin: 8px;
+    padding: 8px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+
 }
 
 #edit-provider-container {
-    flex: 1
-}
-
-#edit-provider-text {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 12px;
-    padding: 10px 2px;
 }
-#edit-provider-label {
-    width: 240px;
-    border: 1px solid black;
-    background-color: white;
-}
-.edit-providerResults {
-    position: absolute;
-	top: 330px;
-	height: fit-content;
-    width: 300px;
-    max-height: 300px;
-	border-radius: 5px;
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px, 5px, 15px;
-
-	overflow: hidden;
-	overflow-y: auto;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
 
 
 #edit-med-button {
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    background-color: rgb(225, 105, 105);
-    font-size: 20px;
-    font-weight: 600;
-    margin-top: 60px;
-}
-
-#edit-provider-btn {
-    text-align: center;
-    border: 1px solid black;
-    padding: 6px;
-    border-radius: 5px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    background-color: #1AACAC;
+    outline: none;
+    border: none;
     width: 150px;
-    font-size: 14px;
-}
-
-
-
-/* ERROR HANDLINE CSS */
-#errors-div {
-    /* border: 1px solid black; */
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-    margin: 0;
-}
-
-.p-error {
-    font-size: 14px;
-    margin: 5px 0;
-    color: red;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

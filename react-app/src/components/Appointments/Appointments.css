@@ -9,7 +9,7 @@
 }
 
 #appointments-page-container {
-    border: 3px solid black;
+    /* border: 3px solid black; */
     width: 100%;
     overflow-y: scroll;
     padding: 20px;

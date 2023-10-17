@@ -23,7 +23,7 @@ const directionsArray = [
     'Take 1 tablet every 8 hours as needed',
     'Take 1 tablet every 12 hours as needed',
     'Take 1 tablet every 2 hours as needed',
-	'Take 1 tablet every hour as needed',
+    'Take 1 tablet every hour as needed',
 
     'Take 1 capsule once daily', //
     'Take 1 capsule once daily in the morning',
@@ -60,8 +60,10 @@ function AddMedModal() {
     const [provider_id, setProviderId] = useState(0);
     const [directions, setDirections] = useState("");
     const [indication, setIndication] = useState("");
-    const [isActive, setIsActive] = useState('false');
-    const [errors, setErrors] = useState([]);
+    const [isActive, setIsActive] = useState('');
+    const [errors, setErrors] = useState({});
+    const [hasSubmitted, setHasSubmitted] = useState(false);
+
     const { closeModal } = useModal();
 
     //Medication search
@@ -158,6 +160,14 @@ function AddMedModal() {
     //handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setHasSubmitted(true);
+
+
+        if (Object.keys(errors).length) {
+            return
+        }
+
+
         const med_id = Object.values(allMedsData).find(m => m.name === med).id
         const newMed = {
             strength,
@@ -165,19 +175,26 @@ function AddMedModal() {
             indication,
             isActive,
         }
-        console.log(newMed)
-        const data = await dispatch(createUserMed(med_id, provider_id, newMed));
+        await dispatch(createUserMed(med_id, provider_id, newMed));
         // console.log(newMed)
-        if (data.errors) {
-            console.log(data)
-            setErrors(data.errors);
-        } else {
-            dispatch(fetchUserMeds())
-            closeModal()
-        }
+
+        await dispatch(fetchUserMeds())
+        setErrors({})
+        setHasSubmitted(false);
+        closeModal()
+
     };
 
     useEffect(() => {
+        const errors = {};
+        if (!finalMed.length) errors.med = "Medication is required";
+        if (!strength.length) errors.strength = "Strength is required";
+        if (!provider.length) errors.provider = "Provider is required";
+        if (!directions.length) errors.directions = "Directions is required";
+        if (!indication.length) errors.indication = "Indication is required";
+        if (!isActive.length) errors.isActive = "Active or inactive is required";
+
+        setErrors(errors)
 
         const handleClickOutside = (event) => {
             if (medRef.current && !medRef.current.contains(event.target)) closeMedSearch();
@@ -201,18 +218,12 @@ function AddMedModal() {
             window.removeEventListener('click', handleProviderClickOutside)
         };
 
-    }, [medResults, directionsResults, providerResults])
+    }, [medResults, directionsResults, providerResults, finalMed, strength, provider, directions, indication, isActive])
 
     return (
         <div id="add-med-modal-container">
             <div id="add-med-title">Add Medication</div>
             <form id='add-med-form-container' onSubmit={handleSubmit}>
-                <div id={errors.length ? 'errors-div' : 'hidden-errors'} >
-                    {errors.map((error, idx) => (
-                        <p className='p-error' key={idx}>{error}</p>
-                    ))}
-                </div>
-
                 <div id="med-strength-container">
                     <div id='med-container'>
                         <div className='add-med-label'>
@@ -227,7 +238,8 @@ function AddMedModal() {
                             <input type="text"
                                 id="med-search-input"
                                 onChange={handleMedsFilter}
-                                placeholder='Search here' />
+                                placeholder='Search here' 
+                                value={strength}/>
                             {filteredMeds.map((m, key) => (
                                 <div className="option-container" key={key} onClick={() => { handleMedSelect(m) }}>
                                     <input type="radio" className="radio-input" id={m} name='medication' />
@@ -235,6 +247,7 @@ function AddMedModal() {
                                 </div>
                             ))}
                         </div>
+                        {hasSubmitted && errors.med && <p className='errors'>{errors.med}</p>}
 
 
                     </div>
@@ -253,6 +266,8 @@ function AddMedModal() {
                                 </option>
                             ))}
                         </select>
+                        {hasSubmitted && errors.strength && <p className='errors'>{errors.strength}</p>}
+
                     </div>
                 </div>
 
@@ -260,23 +275,26 @@ function AddMedModal() {
                     <div className='add-med-label'>
                         Directions
                     </div>
-                        <div id='add-directions-box'
-                            onClick={(e) => { e.stopPropagation(); setDirectionsResults(!directionsResults) }}>
-                            {directions ? directions : "Select your directions ... "}
-                        </div>
+                    <div id='add-directions-box'
+                        onClick={(e) => { e.stopPropagation(); setDirectionsResults(!directionsResults) }}>
+                        {directions ? directions : "Select your directions ... "}
+                    </div>
 
-                        <div className={directionsResults ? "directionsResult" : 'hidden'} ref={directionsRef}>
-                            <input type="text"
-                                id="directions-search-input"
-                                placeholder='Search directions'
-                                onChange={handleDirectionsFilter} />
-                            {filteredDirections.map((d, key) => (
-                                <div className="option-container" key={key} onClick={() => { handleDirectionSelect(d) }}>
-                                    <input type="radio" className="radio-input" id={d} name='directions' />
-                                    <label className="radio-label" htmlFor={d}>{d}</label>
-                                </div>
-                            ))}
-                        </div>
+                    <div className={directionsResults ? "directionsResult" : 'hidden'} ref={directionsRef}>
+                        <input type="text"
+                            id="directions-search-input"
+                            placeholder='Search directions'
+                            onChange={handleDirectionsFilter} />
+                        {filteredDirections.map((d, key) => (
+                            <div className="option-container" key={key} onClick={() => { handleDirectionSelect(d) }}>
+                                <input type="radio" className="radio-input" id={d} name='directions' />
+                                <label className="radio-label" htmlFor={d}>{d}</label>
+                            </div>
+                        ))}
+                    </div>
+
+                    {hasSubmitted && errors.directions && <p className='errors'>{errors.directions}</p>}
+
                 </div>
 
 
@@ -292,8 +310,9 @@ function AddMedModal() {
                             type="text"
                             value={indication}
                             onChange={(e) => setIndication(e.target.value)}
-                            required
                         />
+                        {hasSubmitted && errors.indication && <p className='errors'>{errors.indication}</p>}
+
                     </div>
 
 
@@ -320,47 +339,33 @@ function AddMedModal() {
                                     </div>
                                 ))}
                             </div>
+                            {hasSubmitted && errors.provider && <p className='errors'>{errors.provider}</p>}
+
                         </div>
-
-
-
-                        {/* <label className='add-med-label'>
-                            Provider
-                        </label>
-
-                        <select name='provider'
-                            className='select-input'
-                            onChange={handleProviderSelect}
-                            required>
-                            <option value='' disabled selected>Provider</option>
-
-                            {allProviders.map((p, key) => (
-                                <option key={key} value={p}>
-                                    {p}
-                                </option>
-                            ))}
-                        </select> */}
 
                     </div>
                 </div>
 
-                <div id="activity-provider-container">
+                <div id="addmed-activity-provider-container">
 
                     <div id='med-active-container' >
-                        <div id='active-choice-1'>
+                        <div id="active-inactive-radio">
 
-                            <input type="radio" id="active" name="active" value="active" onChange={() => setIsActive('true')} />
-                            <label className='activity-label' htmlFor="active">Active</label>
+                            <div id='active-choice-1'>
+
+                                <input type="radio" id="active" name="active" value="active" onChange={() => setIsActive('true')} />
+                                <label className='activity-label' htmlFor="active">Active</label>
+                            </div>
+                            <div id="active-choice-2">
+                                <input type="radio" id="inactive" name="active" value="inactive" onChange={() => setIsActive('false')} />
+                                <label className='activity-label' htmlFor="inactive">Inactive</label>
+                            </div>
                         </div>
-                        <div id="active-choice-2">
-                            <input type="radio" id="inactive" name="active" value="inactive" onChange={() => setIsActive('false')} />
-                            <label className='activity-label' htmlFor="inactive">Inactive</label>
-                        </div>
+                        {hasSubmitted && errors.isActive && <p className='errors'>{errors.isActive}</p>}
+
                     </div>
                     <div id="addmedform-provider-container">
-                        <p id='add-provider-text'>Don't see your provider? Add a new provider here.</p>
-                        <div id="add-provider-btn"> Add new provider
-                        </div>
+                        <p id='add-provider-text'>Don't see your provider? Add a new provider on the home page.</p>
                     </div>
                 </div>
 
