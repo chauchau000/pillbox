@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, } from 'react-redux';
 import { createGlucose, fetchGlucose } from '../../store/session';
 
@@ -14,40 +14,48 @@ function AddGlucoseModal() {
   const [level, setLevel] = useState('')
   const [notes, setNotes] = useState('')
 
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
   const { closeModal } = useModal();
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setHasSubmitted(true);
 
-  
-    const data = await dispatch(createGlucose(
+    if (Object.keys(errors).length) {
+      return
+    }
+
+    await dispatch(createGlucose(
       date,
       time,
       level,
       notes
     ));
 
-    if (data.errors) {
-      console.log(data)
-      setErrors(data.errors);
-    } else {
-      dispatch(fetchGlucose())
-      closeModal()
-    }
+
+    await dispatch(fetchGlucose())
+    setErrors({})
+    setHasSubmitted(false);
+    closeModal()
+
   }
+
+  useEffect(() => {
+    const errors = {};
+    if (!date) errors.date = "Date is required";
+    if (!time) errors.time = "Time is required";
+    if (!level) errors.level = "Level is required";
+
+    setErrors(errors)
+  }, [date, time, level])
 
   return (
     <div id='add-glucose-container'>
       <div id="add-glucose-title">Add new glucose level</div>
       <form id='add-glucose-form-container' onSubmit={handleSubmit}>
-        <div id={errors.length ? 'errors-div' : 'hidden-errors'} >
-          {errors.map((error, idx) => (
-            <p className='p-error' key={idx}>{error}</p>
-          ))}
-        </div>
-
 
         <div id="addglucose-level-notes-container">
 
@@ -63,12 +71,15 @@ function AddGlucoseModal() {
               value={level}
 
               onChange={(e) => { setLevel(e.target.value) }} />
+
+            {hasSubmitted && errors.level && <p className='errors'>{errors.level}</p>}
+
           </div>
 
 
           <div id="addglucose-state-container">
-          <div className='add-glucose-label'>
-              Notes
+            <div className='add-glucose-label'>
+              Notes (optional)
             </div>
 
             <input type="text"
@@ -78,6 +89,8 @@ function AddGlucoseModal() {
               value={notes}
               onChange={(e) => { setNotes(e.target.value) }} />
           </div>
+
+
 
         </div>
 
@@ -89,8 +102,9 @@ function AddGlucoseModal() {
               type='date'
               className='glucose-date-picker'
               onChange={(e) => setDate(e.target.value)}
-              required
             />
+            {hasSubmitted && errors.date && <p className='errors'>{errors.date}</p>}
+
           </div>
 
           <div id="addglucose-time-container">
@@ -100,7 +114,10 @@ function AddGlucoseModal() {
               type="time"
               className='glucose-time-picker'
               onChange={(e) => setTime(e.target.value)}
-              required />
+            />
+
+            {hasSubmitted && errors.time && <p className='errors'>{errors.time}</p>}
+
           </div>
         </div>
 

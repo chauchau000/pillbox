@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createProvider, fetchAllProviders } from '../../store/providers';
@@ -14,18 +14,29 @@ function AddProvider() {
   const [state, setState] = useState('');
   const [specialty, setSpecialty] = useState('');
   const [phone, setPhone] = useState('');
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const { closeModal } = useModal();
 
-
-
-
+  const validatePhoneNumber = (input) => {
+    const pattern = /^\d{3}-\d{3}-\d{4}$/;  
+     if (pattern.test(input)) {
+      return true
+     } else {
+      return false
+     }
+  }
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setPhone(phone.split('-').join(''));
+    setHasSubmitted(true);
+
+    if (Object.keys(errors).length) {
+      return
+    }
+    // console.log(typeof(phoneData))
 
     const provider = {
       name,
@@ -36,28 +47,35 @@ function AddProvider() {
       phone
     }
 
-    const data = await dispatch(createProvider(provider));
-    // console.log(newMed)
-    if (data.errors) {
-      setErrors(data.errors);
-    } else {
-      dispatch(fetchAllProviders())
-      closeModal()
-    }
+    await dispatch(createProvider(provider));
+
+    await dispatch(fetchAllProviders())
+    setErrors({})
+    setHasSubmitted(false);
+    closeModal()
+
   }
 
+  useEffect(() => {
+    const errors = {};
+    if (!name.length) errors.name = "Provider name is required";
+    if (!address.length) errors.address = "Address is required";
+    if (!city.length) errors.city = "City is required";
+    if (!state.length) errors.state = "State is required";
+    if (!specialty.length) errors.specialty = "Specialty is required";
+    if (!phone.length) errors.phone = "Phone is required";
+    if (!validatePhoneNumber(phone)) errors.formatphone = "Please use the format xxx-xxx-xxxx"
+
+    setErrors(errors)
+
+
+  }, [name, address, city, state, specialty, phone])
 
   return (
     <div id='add-provider-container'>
       <div id="add-provider-title">Add Provider</div>
 
       <form id="add-provider-form-container" onSubmit={handleSubmit}>
-
-        <div id={errors.length ? 'errors-div' : 'hidden-errors'} >
-          {errors.map((error, idx) => (
-            <p className='p-error' key={idx}>{error}</p>
-          ))}
-        </div>
         <div id="addprovider-name-container">
           <div className='add-provider-label'>
             Name
@@ -69,6 +87,9 @@ function AddProvider() {
             placeholder="Name"
             value={name}
             onChange={(e) => { setName(e.target.value) }} />
+
+          {hasSubmitted && errors.name && <p className='errors'>{errors.name}</p>}
+
         </div>
 
         <div id="addprovider-address-container">
@@ -83,6 +104,9 @@ function AddProvider() {
             value={address}
 
             onChange={(e) => { setAddress(e.target.value) }} />
+
+          {hasSubmitted && errors.address && <p className='errors'>{errors.address}</p>}
+
         </div>
 
         <div id="addprovider-state-city-container">
@@ -99,6 +123,9 @@ function AddProvider() {
               value={city}
 
               onChange={(e) => { setCity(e.target.value) }} />
+
+            {hasSubmitted && errors.city && <p className='errors'>{errors.city}</p>}
+
           </div>
 
 
@@ -113,6 +140,9 @@ function AddProvider() {
               placeholder="State"
               value={state}
               onChange={(e) => { setState(e.target.value) }} />
+
+            {hasSubmitted && errors.state && <p className='errors'>{errors.state}</p>}
+
           </div>
 
         </div>
@@ -129,9 +159,13 @@ function AddProvider() {
               placeholder="Phone"
               value={phone}
 
-              onChange={(e) => { setPhone(e.target.value) }} />
+              onChange={(e) => setPhone(e.target.value)} />
 
-              <div id="format-phone">Format: xxx-xxx-xxxx</div>
+            <div id="format-phone">Format: xxx-xxx-xxxx</div>
+
+            {hasSubmitted && errors.phone && <p className='errors'>{errors.phone}</p>}
+            {hasSubmitted && errors.formatphone && <p className='errors'>{errors.formatphone}</p>}
+
           </div>
 
           <div id="addprovider-specialty-container">
@@ -145,6 +179,9 @@ function AddProvider() {
               placeholder="Specialty"
               value={specialty}
               onChange={(e) => { setSpecialty(e.target.value) }} />
+
+            {hasSubmitted && errors.specialty && <p className='errors'>{errors.specialty}</p>}
+
           </div>
         </div>
         <button type="submit" id='add-provider-button'>Submit</button>

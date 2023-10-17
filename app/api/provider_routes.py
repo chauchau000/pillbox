@@ -36,13 +36,15 @@ def new_provider():
     form = ProviderForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        newphone = ''.join(form.data['phone'].split('-'))
+
         provider = Provider(
             name=form.data['name'],
             address=form.data['address'],
             city=form.data['city'],
             state=form.data['state'],
             specialty=form.data['specialty'],
-            phone=form.data['phone'],
+            phone=newphone
         )
         db.session.add(provider)
         db.session.commit()

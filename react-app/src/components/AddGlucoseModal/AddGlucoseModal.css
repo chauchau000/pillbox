@@ -1,5 +1,5 @@
 #add-glucose-container {
-    height: 450px;
+    height: fit-content;
     width: 550px;
     background-color: white;
     padding: 40px;
