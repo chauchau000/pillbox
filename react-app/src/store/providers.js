@@ -35,6 +35,7 @@ export const createProvider = (provider) => async dispatch => {
 		return data
 	} else {
 		const errors = await res.json();
+        console.log(errors)
 		return errors;
 	}
 }

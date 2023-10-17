@@ -3,7 +3,7 @@
 
 
 #add-appt-container {
-    height: 450px;
+    height: fit-content;
     width: 450px;
     background-color: white;
     padding: 40px;

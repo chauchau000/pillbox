@@ -238,8 +238,7 @@ function AddMedModal() {
                             <input type="text"
                                 id="med-search-input"
                                 onChange={handleMedsFilter}
-                                placeholder='Search here' 
-                                value={strength}/>
+                                placeholder='Search here' />
                             {filteredMeds.map((m, key) => (
                                 <div className="option-container" key={key} onClick={() => { handleMedSelect(m) }}>
                                     <input type="radio" className="radio-input" id={m} name='medication' />

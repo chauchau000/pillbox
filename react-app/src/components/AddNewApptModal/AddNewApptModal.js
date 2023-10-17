@@ -15,7 +15,9 @@ function AddNewApptModal() {
 
     const [date, setDate] = useState('');
     const [time, setTime] = useState('')
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState({});
+    const [hasSubmitted, setHasSubmitted] = useState(false);
+
     const { closeModal } = useModal();
 
 
@@ -47,25 +49,32 @@ function AddNewApptModal() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setHasSubmitted(true);
+
+        if (Object.keys(errors).length) {
+            return
+        }
+
+
         const appt = {
             date,
             time
         }
+        await dispatch(createAppt(provider_id, appt));
 
-        const data = await dispatch(createAppt(provider_id, appt));
-        // console.log(newMed)
-        if (data.errors) {
-            console.log(data)
-            setErrors(data.errors);
-        } else {
-            dispatch(fetchUserAppointments())
-            closeModal()
-        }
+        await dispatch(fetchUserAppointments())
+        setErrors({})
+        setHasSubmitted(false);
+        closeModal()
     }
 
     useEffect(() => {
+        const errors = {};
+        if (!provider.length) errors.provider = "Provider is required";
+        if (!date) errors.date = "Date is required";
+        if (!time) errors.time = "Time is required";
 
-
+        setErrors(errors)
 
         const handleProviderClickOutside = (event) => {
             if (providerRef.current && !providerRef.current.contains(event.target)) closeProviderSearch();
@@ -78,7 +87,7 @@ function AddNewApptModal() {
             window.removeEventListener('click', handleProviderClickOutside)
         };
 
-    }, [providerResults])
+    }, [providerResults, provider, date, time])
 
 
 
@@ -87,12 +96,6 @@ function AddNewApptModal() {
             <div id="add-appt-title">Add Appointment</div>
 
             <form id='add-appt-form-container' onSubmit={handleSubmit}>
-
-                <div id={errors.length ? 'errors-div' : 'hidden-errors'} >
-                    {errors.map((error, idx) => (
-                        <p className='p-error' key={idx}>{error}</p>
-                    ))}
-                </div>
 
                 <div id="appt-provider-container">
                     <div className='add-appt-label'>
@@ -116,6 +119,9 @@ function AddNewApptModal() {
                             </div>
                         ))}
                     </div>
+                    {hasSubmitted && errors.provider && <p className='errors'>{errors.provider}</p>}
+
+
                 </div>
 
                 <div id="date-time-contianer">
@@ -124,9 +130,12 @@ function AddNewApptModal() {
                         <input
                             type='date'
                             className='appt-date-picker'
-                            onChange={ (e) => setDate(e.target.value)}
-                            required
+                            onChange={(e) => setDate(e.target.value)}
+
                         />
+
+                        {hasSubmitted && errors.date && <p className='errors'>{errors.date}</p>}
+
                     </div>
 
                     <div id="time-container">
@@ -136,9 +145,12 @@ function AddNewApptModal() {
                             type="time"
                             className='appt-time-picker'
                             name="appt"
-                            onChange={ (e) => setTime(e.target.value)}
+                            onChange={(e) => setTime(e.target.value)}
 
-                            required />
+                        />
+
+                        {hasSubmitted && errors.time && <p className='errors'>{errors.time}</p>}
+
                     </div>
                 </div>
 
