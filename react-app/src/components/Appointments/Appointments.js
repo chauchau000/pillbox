@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserAppointments } from '../../store/session';
 import { fetchAllProviders } from '../../store/providers';
-import { format } from 'date-fns';
 import AddNewApptModal from '../AddNewApptModal/AddNewApptModal';
 import OpenModalButton from '../OpenModalButton/OpenModalButton';
 import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal';
+import EditApptModal from '../EditApptModal/EditApptModal';
 import './Appointments.css';
+// import { format } from 'date-fns';
 
 
 function Appointments() {
@@ -40,15 +41,20 @@ function Appointments() {
               <p className='a-date'>{a?.date.slice(5, 7)}/{a?.date.slice(8, 10)}/{a?.date.slice(0, 4)}</p>
               <p className='a-time'>{a?.time}</p>
               <div className="appt-edit-delete-container">
+                <OpenModalButton modalComponent={<EditApptModal appt={a} />}
+                  buttonHTML={<span className="material-symbols-outlined">edit</span>}
+                  className='appt-edit'
+                />
                 <OpenModalButton modalComponent={<ConfirmDeleteModal id={a.id} deleteItem='appt' />}
                   buttonHTML={<span className="material-symbols-outlined">close</span>}
-                  className='med-delete'
+                  className='appt-delete'
                 />
+
               </div>
             </div>
           ))}
           <OpenModalButton className='a-card-container new-appt-button' modalComponent={<AddNewApptModal />} buttonText="Add new appointment" />
-
+            
         </div>
 
 

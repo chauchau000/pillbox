@@ -9,7 +9,6 @@ appointments_routes = Blueprint('appointments', __name__)
 
 
 @appointments_routes.route('/<int:provider_id>', methods=['POST'])
-@login_required
 def create_appointment(provider_id):
     """
     Create new appointment for current user

@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useModal } from '../../context/Modal'
-import { deleteUserMed, fetchUserMeds, deleteAppt, fetchUserAppointments } from '../../store/session'
+import { deleteUserMed, fetchUserMeds, deleteAppt, fetchUserAppointments, deleteGlucose, fetchGlucose } from '../../store/session'
 
 import './ConfirmDeleteModal.css'
 
@@ -19,6 +19,9 @@ function ConfirmDeleteModal({id, deleteItem}) {
         } else if (location.pathname ==='/home') {
             await dispatch(deleteUserMed(id))
             await dispatch(fetchUserMeds())
+        } else if (location.pathname === '/blood-glucose') {
+            await dispatch(deleteGlucose(id))
+            await dispatch(fetchGlucose())
         }
 
         closeModal()

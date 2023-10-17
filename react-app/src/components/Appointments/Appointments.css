@@ -88,3 +88,21 @@
     text-align: center;
     cursor: pointer;
 }
+
+.appt-edit-delete-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    /* border: 3px solid black; */
+    
+}
+
+.appt-edit>.material-symbols-outlined, .appt-delete>.material-symbols-outlined {
+    font-size: 30px;
+}
+
+.material-symbols-outlined:hover {
+    cursor: pointer;
+}

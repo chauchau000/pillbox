@@ -3,8 +3,9 @@
 
 
 #add-med-modal-container {
-    width: 600px;
-    height: 800px;
+    width: 40rem;
+    height: 45rem;
+    position: relative;
     background-color: white;
     font-family: 'Poppins', sans-serif;
     padding: 40px;
@@ -15,19 +16,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* border: 3px solid black; */
 }
 
 #add-med-title {
     text-align: center;
     font-size: 24px;
     font-weight: 500;
-    margin-bottom: 30px;}
+    margin-bottom: 30px;
+}
 
-.add-med-modal:hover{
+.add-med-modal:hover {
     cursor: pointer;
 }
 
 #add-med-form-container {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,25 +41,25 @@
 }
 
 #indication-input::placeholder {
-    color: white;
+    color: whitesmoke;
     font-size: 16px;
 }
 
 #add-med-box {
-    background-color:#2E97A7;
+    background-color: #2E97A7;
     color: white;
     padding: 10px;
     margin-right: 10px;
     border-radius: 8px;
     width: 16rem;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 2.8rem;
 
 }
 
 
 .add-med-label {
-    margin: 0 0 5px 0 ;
+    margin: 0 0 5px 0;
     padding: 0 5px;
 }
 
@@ -73,16 +78,16 @@
 
 .med-results-container {
     /* border: 1px solid black; */
-	position: absolute;
-	top: 80px;
+    position: absolute;
+    top: 80px;
     width: 16rem;
-	height: auto;
+    height: auto;
     max-height: 300px;
-	border-radius: 5px;
-	background-color: #2E97A7;
+    border-radius: 5px;
+    background-color: #2E97A7;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	overflow: hidden;
-	overflow-y: auto;
+    overflow: hidden;
+    overflow-y: auto;
     z-index: 100;
 }
 
@@ -111,7 +116,7 @@
 }
 
 
-#med-search-box{
+#med-search-box {
     position: absolute;
 }
 
@@ -122,19 +127,20 @@
 }
 
 .strength-input {
+
     font-size: 16px;
     padding: 4px;
     height: 2.8rem;
     border-radius: 8px;
     border: none;
-    background-color:#2E97A7;
+    background-color: #2E97A7;
     color: white;
     padding: 10px;
     border-radius: 8px;
-    width: 14rem;
+    width: 16rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     outline: none;
-    
+
 }
 
 #med-strength-container {
@@ -151,14 +157,21 @@
 
 }
 
-#strength-container, #provider-container {
+#strength-container,
+#provider-container {
     margin-left: 10px;
 }
-#med-container, #strength-container {
+
+#med-container,
+#strength-container {
     flex: 1;
 }
 
-#med-container, #strength-container, #directions-container, #indications-container, #provider-container {
+#med-container,
+#strength-container,
+#directions-container,
+#indications-container,
+#provider-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -175,31 +188,17 @@
 }
 
 
-.directionsResult {
-
-    position: absolute;
-	top: 95px;
-	width: 31.5rem;
-	height: auto;
-    max-height: 300px;
-	border-radius: 5px;
-	background-color: #2E97A7;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	overflow: hidden;
-	overflow-y: auto;
-    z-index: 50
-}
 
 #indication-input {
     outline: none;
     border: none;
-    background-color:#2E97A7;
+    background-color: #2E97A7;
     color: white;
     padding: 10px;
     margin-right: 10px;
     border-radius: 8px;
     width: 16rem;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 2.8rem;
 }
 
@@ -215,12 +214,12 @@
 
 #add-directions-box {
 
-    width: 100%;
-    background-color:#2E97A7;
+    width: 33rem;
+    background-color: #2E97A7;
     color: white;
     padding: 10px;
     border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 2.8rem;
 
 }
@@ -236,19 +235,35 @@
     border-radius: 5px;
 }
 
+.directionsResult {
+
+    position: absolute;
+    top: 95px;
+    width: 33rem;
+    height: auto;
+    max-height: 300px;
+    border-radius: 5px;
+    background-color: #2E97A7;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 50
+}
+
+
 
 #directions-input {
     height: 25px;
     width: 100%
-    
 }
+
 .radio-input {
     display: none;
 }
 
 .radio-label {
     color: white;
-    padding: 6px;    
+    padding: 6px;
 }
 
 .option-container {
@@ -288,6 +303,7 @@
     font-size: 12px;
     padding: 10px 2px;
 }
+
 #add-provider-label {
     border: none;
 
@@ -296,26 +312,27 @@
     height: 2.8rem;
     border-radius: 8px;
     border: none;
-    background-color:#2E97A7;
+    background-color: #2E97A7;
     color: white;
     padding: 10px;
     border-radius: 8px;
-    width: 14rem;
+    width: 16rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     outline: none;
 }
+
 .providerResults {
     position: absolute;
-	top: 5rem;
-	height: auto;
-    width: 14rem;
-    max-height: 300px;
-	border-radius: 5px;
+    top: 5rem;
+    height: auto;
+    max-height: 14rem;
+    width: 16rem;
+    border-radius: 5px;
 
-	background-color: #2E97A7;
+    background-color: #2E97A7;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	overflow: hidden;
-	overflow-y: auto;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 
@@ -332,7 +349,8 @@
     margin: 5px;
 }
 
-#active-choice-1, #active-choice-2 {
+#active-choice-1,
+#active-choice-2 {
     margin: 0 10px
 }
 
@@ -341,7 +359,7 @@
     border-radius: 10px;
     color: white;
     font-size: 16px;
-    background-color: #1AACAC ;
+    background-color: #1AACAC;
     outline: none;
     border: none;
     width: 150px;

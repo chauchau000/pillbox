@@ -1,0 +1,9 @@
+#edit-appt-container {
+    height: 350px;
+    width: 450px;
+    background-color: white;
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 20px;
+    box-shadow: rgba(94, 93, 93, 0.654) 0px 5px 15px;
+}

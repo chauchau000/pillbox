@@ -9,7 +9,6 @@ glucose_routes = Blueprint('glucose', __name__)
 
 
 @glucose_routes.route('/', methods=['POST'])
-@login_required
 def create_glucose():
     """
     Create new glucose reading for current user

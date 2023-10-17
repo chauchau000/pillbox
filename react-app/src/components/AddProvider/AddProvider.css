@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+#add-provider-container {
+    height: fit-content;
+    width: 35rem;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 20px;
+    box-shadow: rgba(94, 93, 93, 0.654) 0px 5px 15px;
+    background-color: white;
+    padding: 40px;
+}
+
+#add-provider-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 3px solid black; */
+}
+
+#add-provider-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+#addprovider-phone-specialty-container, #addprovider-address-container, #addprovider-state-city-container, #addprovider-name-container {
+    width: 100%;
+    /* border: 3px solid black; */
+    position: relative;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 30px;
+    margin-bottom: 20px;
+} 
+
+#addprovider-phone-specialty-container, #addprovider-state-city-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+#addprovider-city-container, #addprovider-state-container, #addprovider-phone-container, #addprovider-specialty-container {
+    width: 100%;
+}
+
+#addprovider-city-container,#addprovider-phone-container {
+    margin-right: 8px;
+}
+#addprovider-state-container, #addprovider-specialty-container {
+    margin-left: 8px;
+}
+
+
+.add-provider-label {
+    margin: 0 0 5px 0 ;
+    padding: 0 5px;
+}
+
+.add-provider-input {
+    height: 2.8rem;
+    width: 100%;
+    background-color:#2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    outline: none;
+    
+    display: flex;
+    align-items: center;
+}
+
+.add-provider-input::placeholder {
+    color: whitesmoke;
+    font-size: 16px;
+
+}
+
+#format-phone {
+    color: #6f6868;
+    padding: 2px;
+    margin-left: 2px;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+#addprovider-specialty-container {
+    margin-bottom: 30px;
+}
+
+
+#add-provider-button {
+    margin-top: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    background-color: #1AACAC ;
+    outline: none;
+    border: none;
+    width: 150px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+
+/* #add-provider-phone {
+    outline: none;
+    border: 1px solid;
+}
+
+
+#add-provider-phone:valid {
+    border-color: green
+}
+
+#add-provider-phone:focus:invalid {
+    border-color: red;
+} */

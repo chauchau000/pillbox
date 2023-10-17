@@ -9,6 +9,10 @@ class ProviderForm(FlaskForm):
         'name', validators=[DataRequired()])
     address = StringField(
         'address', validators=[DataRequired()])
+    city = StringField(
+        'city', validators=[DataRequired()])
+    state = StringField(
+        'state', validators=[DataRequired()])
     specialty = StringField(
         'specialty', validators=[DataRequired()])
-    phone = StringField('phone', validators=[DataRequired(), Length(10, 10, "Phone number must be 10 digits")])
+    phone = StringField('phone', validators=[DataRequired()])

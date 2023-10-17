@@ -39,6 +39,8 @@ def new_provider():
         provider = Provider(
             name=form.data['name'],
             address=form.data['address'],
+            city=form.data['city'],
+            state=form.data['state'],
             specialty=form.data['specialty'],
             phone=form.data['phone'],
         )

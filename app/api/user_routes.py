@@ -59,7 +59,6 @@ def user_appointments():
 
 
 @user_routes.route('/glucose')
-@login_required
 def user_glucose():
     """
     Query for current user's glucose readings

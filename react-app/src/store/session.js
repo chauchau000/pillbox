@@ -16,6 +16,15 @@ const AM_DIRECTIONS = [
 	'Take 1 tablet every 6 hours', // AM NOON PM QHS
 	'Take 1 tablet every 8 hours', // AM NOON QHS
 	'Take 1 tablet every 12 hours', // AM HS
+
+	'Take 1 capsule once daily', //
+	'Take 1 capsule once daily in the morning', //AM
+	'Take 1 capsule twice daily', //AM PM
+	'Take 1 capsule three times daily', // AM NOON PM
+	'Take 1 capsule four times daily', // AM NOON PM QHS
+	'Take 1 capsule every 6 hours', // AM NOON PM QHS
+	'Take 1 capsule every 8 hours', // AM NOON QHS
+	'Take 1 capsule every 12 hours', // AM HS
 ]
 
 const NOON_DIRECTIONS = [	
@@ -25,6 +34,13 @@ const NOON_DIRECTIONS = [
 	'Take 1 tablet four times daily', // AM NOON PM QHS
 	'Take 1 tablet every 6 hours', // AM NOON PM QHS
 	'Take 1 tablet every 8 hours', // AM NOON QHS
+
+	'Take 1 capsule once daily at lunch', //
+	'Take 1 capsule once daily at noon', //
+	'Take 1 capsule three times daily', // AM NOON PM
+	'Take 1 capsule four times daily', // AM NOON PM QHS
+	'Take 1 capsule every 6 hours', // AM NOON PM QHS
+	'Take 1 capsule every 8 hours', // AM NOON QHS
 ]
 
 const PM_DIRECTIONS = [
@@ -33,6 +49,12 @@ const PM_DIRECTIONS = [
 	'Take 1 tablet three times daily', // AM NOON PM
 	'Take 1 tablet four times daily', // AM NOON PM QHS
 	'Take 1 tablet every 6 hours', // AM NOON PM QHS
+
+	'Take 1 capsule once daily in the evening', //PM
+	'Take 1 capsule twice daily', //AM PM
+	'Take 1 capsule three times daily', // AM NOON PM
+	'Take 1 capsule four times daily', // AM NOON PM QHS
+	'Take 1 capsule every 6 hours', // AM NOON PM QHS
 ]
 
 const HS_DIRECTIONS = [
@@ -41,14 +63,29 @@ const HS_DIRECTIONS = [
 	'Take 1 tablet every 6 hours', // AM NOON PM QHS
 	'Take 1 tablet every 8 hours', // AM NOON QHS
 	'Take 1 tablet every 12 hours', // AM HS
+
+	'Take 1 capsule once daily at bedtime', //HS
+	'Take 1 capsule four times daily', // AM NOON PM QHS
+	'Take 1 capsule every 6 hours', // AM NOON PM QHS
+	'Take 1 capsule every 8 hours', // AM NOON QHS
+	'Take 1 capsule every 12 hours', // AM HS
 ]
 
 const PRN_DIRECTIONS = [
+	'Take 1 capsule every 6 hours as needed',
+	'Take 1 capsule every 4 hours as needed',
+	'Take 1 capsule every 8 hours as needed',
+	'Take 1 capsule every 12 hours as needed',
+	'Take 1 capsule every 2 hours as needed',
+	'Take 1 capsule every hour as needed',
+
 	'Take 1 tablet every 6 hours as needed',
 	'Take 1 tablet every 4 hours as needed',
 	'Take 1 tablet every 8 hours as needed',
 	'Take 1 tablet every 12 hours as needed',
 	'Take 1 tablet every 2 hours as needed',
+	'Take 1 tablet every hour as needed',
+
 ]
 
 
@@ -174,6 +211,8 @@ export const signUp = (first_name, last_name, dob, email, password) => async (di
 	}
 };
 
+//fetch User values - user meds, appointments, glucose
+
 
 export const fetchUserMeds = () => async (dispatch) => {
 	const response = await fetch('/api/users/meds')
@@ -208,8 +247,7 @@ export const fetchUserProviders = () => async dispatch => {
 
 	if (response.ok) {
 		const data = await response.json();
-		dispatch(getUserProviders(data));
-		return data
+		await dispatch(getUserProviders(data));
 	} else {
 		const errors = await response.json()
 		return errors
@@ -228,6 +266,8 @@ export const fetchGlucose = () => async dispatch => {
 		return errors
 	}
 }
+
+//User Meds
 
 export const createUserMed = (med_id, provider_id, newMed) => async dispatch => {
 	const res = await fetch(`/api/users/meds/${med_id}/${provider_id}`, {
@@ -302,6 +342,8 @@ export const editMed = (userMed_id, newMed) => async dispatch => {
 	}
 }
 
+//Appointments
+
 export const createAppt = (provider_id, appt) => async dispatch => {
 	const res = await fetch(`/api/appointments/${provider_id}`, {
 		method: "POST",
@@ -321,8 +363,85 @@ export const createAppt = (provider_id, appt) => async dispatch => {
 	}
 }
 
+export const editAppt = (appt_id, newAppt) => async dispatch => {
+	const res = await fetch(`/api/appointments/${appt_id}`, {
+		method: "PUT",
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newAppt)
+	})
+
+	if (res.ok) {
+		const data = await res.json();
+		return data
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
+
 export const deleteAppt = (id) => async dispatch => {
 	const res = await fetch(`/api/appointments/${id}`, {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		}
+	})
+
+	if (res.ok) {
+		const data = await res.json()
+		// console.log(data)
+		return data
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
+
+//Glucose 
+
+export const createGlucose = (date,time,level,notes) => async (dispatch) => {
+	const res = await fetch("/api/glucose/", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({date,time,level,notes})
+	})
+
+	if (res.ok) {
+		const data = await res.json();
+		console.log('Glucose level created')
+		return data
+	} else {
+		const errors = await res.json();
+		console.log(errors)
+		return errors;
+	}
+}
+
+
+export const editGlucose = (glucose_id, newGlucose) => async dispatch => {
+	const res = await fetch(`/api/glucose/${glucose_id}`, {
+		method: "PUT",
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(newGlucose)
+	})
+
+	if (res.ok) {
+		const data = await res.json();
+		return data
+	} else {
+		const errors = await res.json()
+		return errors
+	}
+}
+
+export const deleteGlucose = (id) => async dispatch => {
+	const res = await fetch(`/api/glucose/${id}`, {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",

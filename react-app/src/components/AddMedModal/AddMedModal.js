@@ -23,6 +23,27 @@ const directionsArray = [
     'Take 1 tablet every 8 hours as needed',
     'Take 1 tablet every 12 hours as needed',
     'Take 1 tablet every 2 hours as needed',
+	'Take 1 tablet every hour as needed',
+
+    'Take 1 capsule once daily', //
+    'Take 1 capsule once daily in the morning',
+    'Take 1 capsule once daily at lunch', //
+    'Take 1 capsule once daily at noon', //
+    'Take 1 capsule once daily in the evening',
+    'Take 1 capsule once daily at bedtime',
+    'Take 1 capsule twice daily',
+    'Take 1 capsule three times daily',
+    'Take 1 capsule four times daily',
+    'Take 1 capsule every 6 hours',
+    'Take 1 capsule every 8 hours',
+    'Take 1 capsule every 12 hours',
+    'Take 1 capsule every 6 hours as needed',
+    'Take 1 capsule every 4 hours as needed',
+    'Take 1 capsule every 8 hours as needed',
+    'Take 1 capsule every 12 hours as needed',
+    'Take 1 capsule every 2 hours as needed',
+    'Take 1 capsule every hour as needed',
+
 ]
 
 function AddMedModal() {
@@ -336,7 +357,7 @@ function AddMedModal() {
                             <label className='activity-label' htmlFor="inactive">Inactive</label>
                         </div>
                     </div>
-                    <div id="add-provider-container">
+                    <div id="addmedform-provider-container">
                         <p id='add-provider-text'>Don't see your provider? Add a new provider here.</p>
                         <div id="add-provider-btn"> Add new provider
                         </div>
