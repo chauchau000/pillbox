@@ -6,6 +6,7 @@ import AddNewApptModal from '../AddNewApptModal/AddNewApptModal';
 import OpenModalButton from '../OpenModalButton/OpenModalButton';
 import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal';
 import EditApptModal from '../EditApptModal/EditApptModal';
+import Calendar from '../Calendar/Calendar';
 import './Appointments.css';
 // import { format } from 'date-fns';
 
@@ -28,7 +29,8 @@ function Appointments() {
     <div id='appointments-page-container'>
       <div id='appointments-welcome-text'>Welcome to your appointments page!</div>
       <div id="calendar-placeholder">
-        <div id="calendar-text">Calendar feature coming soon ...</div>
+        <Calendar />
+        {/* <div id="calendar-text">Calendar feature coming soon ...</div> */}
       </div>
 
       <div id="appointments-container">
