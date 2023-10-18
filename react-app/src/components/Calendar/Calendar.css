@@ -1,0 +1,80 @@
+#whole-calendar-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#calendar-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 14%;
+    font-size: 30px;
+}
+
+.calendar-arrows {
+    font-size: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar-arrows:hover {
+    cursor: pointer;
+    background-color:#2e97a783;
+}
+
+#calendar-weekday-header-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1;
+    width: 100%;
+    justify-items: center;
+    align-items: start;
+    grid-auto-flow: row;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    height: 10%;
+    font-size: 24px;
+}
+
+#calendar-grid {
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 6px;
+    justify-items: start;
+    align-items: start;
+    grid-auto-flow: row;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.calendar-single-day {
+    height: 100%;
+    width: 100%;
+    border: 2px solid #EEEEEE;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.same-month {
+    color: black
+}
+
+.diff-month {
+    color: #7a7373a5
+}
+
+.appt-div {
+    font-size: 0.8rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
