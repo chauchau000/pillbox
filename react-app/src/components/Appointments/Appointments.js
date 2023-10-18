@@ -27,7 +27,6 @@ function Appointments() {
 
   return (
     <div id='appointments-page-container'>
-      <div id='appointments-welcome-text'>Welcome to your appointments page!</div>
       <div id="calendar-placeholder">
         <Calendar />
         {/* <div id="calendar-text">Calendar feature coming soon ...</div> */}

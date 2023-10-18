@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Sono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 #signup-page-container {
     display: flex;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #EEEEEE;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
 }
 
 #left-side {
@@ -11,6 +12,9 @@
     width: 50vw;
     height: 100%;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -26,40 +30,68 @@
 #signup-form-container{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 1px solid black; */
     padding: 20px 40px;
 }
 
+#pillbox-welcome {
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    color: #1AACAC;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: 16px;
+    margin-bottom: 60px;
+}
+
 .signup-label {
-    display: flex;
+    margin: 0 0 5px 0;
+    padding: 5px 5px;
 }
 
 #sign-up-title {
-    padding: 24px;
-    font-size: 60px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 .signup-input {
-    margin: 10px 0;
-    padding: 3px;
-    height: 20px;
-    width: 200px;
-    border-radius: 10px;
+    font-size: 16px;
+    padding: 4px;
+    height: 2.8rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #2E97A7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 16rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline: none;
 }
 
-.form-button {
-    height: 30px;
-    width: 200px;
-    border-radius: 10px;
-    background-color: #1AACAC;
-    color:#EEEEEE;
-    font-size: 20px;
-    padding: 20px 0;
+.signup-subsection-container {
     display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: relative;
     justify-content: center;
     align-items: center;
-    
 }
+
+.signup-section-container {
+    display: flex;
+    flex-direction: row;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 30px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+
 
 #left-bottom-container {
     display: flex;
@@ -71,13 +103,45 @@
     align-items: center;
 }
 
-#sign-in-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
-    padding: 0 10px;
+#signup-button {
     border-radius: 10px;
-    border: 1px solid black;
-    height: 35px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    width: 150px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #1AACAC;
+
+}
+
+.section-right {
+    margin-left: 5px;
+}
+
+.section-left {
+    margin-right: 5px;
+}
+#signin-button {
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    width: 150px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #176B87;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+
+#signup-bottom-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
