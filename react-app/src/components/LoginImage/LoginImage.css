@@ -1,0 +1,19 @@
+#image-page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.image-section-container {
+    border: 2px solid #EEEEEE;
+    margin: 10px;
+    border-radius: 50%;
+    padding: 15px; 
+}
+
+
+
+.white-icon  {
+    color: #EEEEEE;
+    font-size: 50px;
+}

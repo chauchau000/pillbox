@@ -1,0 +1,30 @@
+#pillbox-grid-container {
+    height: fit-content;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 35px;
+    justify-items: center;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    /* right: 6rem; */
+    /* top: 5rem; */
+    left: 5px;
+
+}
+
+.pillbox {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.pill {
+    color: #9a95952b;
+    
+}
