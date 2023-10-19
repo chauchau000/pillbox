@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
+import LoginImage from "../LoginImage/LoginImage";
 import './LoginForm.css';
 
 function LoginFormPage() {
@@ -106,7 +107,7 @@ function LoginFormPage() {
         </div>
       </div>
       <div id="right-side">
-        <div id="placeholder">image goes here</div>
+        <LoginImage />
       </div>
     </div>
   );

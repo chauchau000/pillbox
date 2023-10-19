@@ -1,6 +1,7 @@
 import React from 'react'
 import './LandingPage.css'
 import { Link } from 'react-router-dom'
+import PillGrid from '../PillGrid/PillGrid'
 
 
 function LandingPage() {
@@ -8,6 +9,7 @@ function LandingPage() {
 
     return (
         <div className="landing-page-container">
+            <PillGrid />
             <div id='title'>pillbox
                 <span className="material-symbols-outlined">
                     pill
@@ -19,6 +21,7 @@ function LandingPage() {
 
             <Link className='button' id="get-started" to='/signup'>Get started</Link>
             <Link className='button' id="login" to='/login'>Login</Link>
+
         </div>
 
     )

@@ -1,0 +1,26 @@
+#image-page-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    grid-gap: 8px;
+    padding: 10px;
+    align-items: center;
+}
+
+.image-section-container {
+    border: 2px solid #eeeeee86;
+    margin: 10px;
+    border-radius: 50%;
+    padding: 10px; 
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.white-icon  {
+    color: #eeeeee86;
+    font-size: 50px;
+}
