@@ -6,18 +6,25 @@ import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal'
 import EditGlucoseModal from '../EditGlucoseModal/EditGlucoseModal'
 import './Glucose.css'
 import AddGlucoseModal from '../AddGlucoseModal/AddGlucoseModal'
-// import GlucoseChart from '../GlucoseChart/GlucoseChart'
+import GlucoseChart from '../GlucoseChart/GlucoseChart'
 
 
 function Glucose() {
   const dispatch = useDispatch()
   const glucoseData = useSelector(state => state.session.glucose)
 
-  // const levels = glucoseData?.map( (g) => g.level)
-  // const dates = glucoseData?.map( (g) => g.date)
+  const datesArray = glucoseData?.map((a) => {
+    return {
+        ...a,
+        dateObj: new Date(a.date + "T" + a.time)
+    }
+})
 
-  // console.log('dates: ', dates)
-  // console.log('levels: ', levels)
+  
+  const levels = glucoseData?.map( (g) => g.level).slice(0,60).reverse()
+  const dates = datesArray?.map( (g) => g.dateObj).slice(0,60).reverse()
+
+
 
   useEffect(() => {
     dispatch(fetchGlucose())
@@ -26,7 +33,7 @@ function Glucose() {
   return (
     <div id='glucose-page-container'>
       <div id="glucose-chart-container">
-        {/* <GlucoseChart dates={dates} levels={levels}/> */}
+        <GlucoseChart dates={dates} levels={levels}/>
       </div>
 
       <table id="glucose-table">

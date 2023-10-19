@@ -289,11 +289,11 @@ function EditMedModal({ userMed }) {
 
                         <div id='active-choice-1'>
 
-                            <input type="radio" id="active" name="active" value="active" onChange={() => setIsActive('True')} />
+                            <input type="radio" id="active" name="active" value="active" onChange={() => setIsActive('true')} />
                             <label className='activity-label' htmlFor="active">Active</label>
                         </div>
                         <div id="active-choice-2">
-                            <input type="radio" id="inactive" name="active" value="inactive" onChange={() => setIsActive('False')} />
+                            <input type="radio" id="inactive" name="active" value="inactive" onChange={() => setIsActive('false')} />
                             <label className='activity-label' htmlFor="inactive">Inactive</label>
                         </div>
                     </div>

@@ -61,6 +61,7 @@ function Calendar() {
                                             </div>
                                         }
                                         className='calendar-appt-edit'
+                                        key={key}
                                     />
                                 }
                             </>
