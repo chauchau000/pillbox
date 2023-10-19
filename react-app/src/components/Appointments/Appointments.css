@@ -11,10 +11,11 @@
 #appointments-page-container {
     /* border: 3px solid black; */
     width: 100%;
-    overflow-y: scroll;
+    flex: 1;
+    box-sizing: border-box;
     padding: 20px;
     font-family: 'Poppins', sans-serif;
-
+    overflow-y: scroll;
 
 
 }
