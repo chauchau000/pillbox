@@ -2,53 +2,60 @@ import React from 'react'
 import './LoginImage.css'
 import anime from 'animejs'
 
+const GRID_WIDTH = 8;
+const GRID_HEIGHT = 5;
+
 function LoginImage() {
-    function randomValues() {
-
+    const handlePillClick = (e) => {
         anime({
-            targets: '.image-section-container',
-            translateX: function() {
-                return anime.random(0, 270);
-              },
-              translateY: function() {
-                return anime.random(0, 270);
-              },
-              easing: 'easeInOutQuad',
-              duration: 750,
-              complete: randomValues
+            targets: ".image-section-container",
+            scale: [
+                { value: 1.1, easing: "easeOutSine", duration: 250 },
+                { value: 1, easing: "easeInOutQuad", duration: 500 },
+            ],
+            translateY: [
+                { value: -15, easing: "easeOutSine", duration: 250 },
+                { value: 0, easing: "easeInOutQuad", duration: 500 },
+            ],
+            opacity: [
+                { value: 1, easing: "easeOutSine", duration: 250 },
+                { value: 0.5, easing: "easeInOutQuad", duration: 500 },
+            ],
+            delay: anime.stagger(200, {
+                grid: [GRID_WIDTH, GRID_HEIGHT],
+                from: e.target.dataset.index,
+            }),
         });
-        
-    }
+    };
+    const icons = ["medication", "calendar_month", "pill", "medical_services", "medication"]
 
-;
+    const pills = [];
+    let index = 0;
+
+    for (let i = 0; i < GRID_WIDTH; i++) {
+        for (let j = 0; j < GRID_HEIGHT; j++) {
+            pills.push(
+                <div className="image-section-container"
+                    data-index={index}
+                    key={`${i}-${j}`}
+
+                    onMouseOver={handlePillClick}
+                >
+                    <span className="material-symbols-outlined white-icon"
+                        data-index={index}
+                    >
+                        {icons[j]}
+                    </span>
+                </div>
+
+            )
+            index++
+        }
+    }
 
     return (
         <div id='image-page-container'>
-            <div className="image-section-container">
-                <span className="material-symbols-outlined white-icon end">
-                    medication
-                </span>
-            </div>
-            <div className="image-section-container">
-            <span className="material-symbols-outlined white-icon almost-middle">
-                    calendar_month
-                </span>
-            </div>
-            <div className="image-section-container">
-            <span className="material-symbols-outlined white-icon middle">
-                    pill
-                </span>
-            </div>
-            <div className="image-section-container">
-            <span className="material-symbols-outlined white-icon almost-middle">
-                    medical_services
-                </span>
-            </div>
-            <div className="image-section-container">
-            <span className="material-symbols-outlined white-icon end">
-                    medication
-                </span>
-            </div>
+            {pills}
 
         </div>
     )
