@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { startOfMonth, lastDayOfMonth, startOfWeek, endOfWeek, eachDayOfInterval, format, addMonths, subMonths, isSameDay} from 'date-fns'
+import { startOfMonth, lastDayOfMonth, startOfWeek, endOfWeek, eachDayOfInterval, format, addMonths, subMonths, isSameDay } from 'date-fns'
 import './Calendar.css'
+import EditApptModal from '../EditApptModal/EditApptModal';
+import OpenModalButton from '../OpenModalButton/OpenModalButton';
 
 const WEEKDAYS = [
     "Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"
@@ -11,10 +13,10 @@ const WEEKDAYS = [
 function Calendar() {
     const userAppointmentsData = useSelector(state => state.session.appointments);
 
-    const apptArray = userAppointmentsData.map ( (a) => {
+    const apptArray = userAppointmentsData?.map((a) => {
         return {
-            ...a, 
-            date: new Date(a.date +"T"+ a.time)
+            ...a,
+            dateObj: new Date(a.date + "T" + a.time)
         }
     })
 
@@ -31,7 +33,7 @@ function Calendar() {
     return (
         <div id='whole-calendar-container'>
             <div id="calendar-header">
-                <span className="material-symbols-outlined calendar-arrows"  onClick={() => setCurrentDate(subMonths(currentDate, 1))}>
+                <span className="material-symbols-outlined calendar-arrows" onClick={() => setCurrentDate(subMonths(currentDate, 1))}>
                     chevron_left
                 </span>
                 <div id="month-year">{format(currentDate, "MMM yyyy")}</div>
@@ -45,15 +47,22 @@ function Calendar() {
                 ))}
             </div>
             <div id="calendar-grid">
-                {totalDates.map((day, key) => (
+                {totalDates?.map((day, key) => (
                     <div className={day.getMonth() === currentDate.getMonth() ? "calendar-single-day same-month" : "calendar-single-day diff-month"} key={key}>
                         {day.getDate()}
-                        {apptArray.map( (a, key) => (
+                        {apptArray?.map((a, key) => (
                             <>
-                                {isSameDay(a.date, day) && <div className="appt-div">
-                                    <p>{a.provider.name}</p>
-                                    <p>{format(a.date, "h:mm aa")}</p>
-                                    </div>}
+                                {isSameDay(a.dateObj, day) &&
+                                    <OpenModalButton modalComponent={<EditApptModal appt={a} />}
+                                        buttonHTML={
+                                            <div className="appt-div">
+                                                <p>{a.provider.name}</p>
+                                                <p>{format(a.dateObj, "h:mm aa")}</p>
+                                            </div>
+                                        }
+                                        className='calendar-appt-edit'
+                                    />
+                                }
                             </>
                         ))}
                     </div>
