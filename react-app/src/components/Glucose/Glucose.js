@@ -36,6 +36,10 @@ function Glucose() {
         <GlucoseChart dates={dates} levels={levels}/>
       </div>
 
+    <div id="glucose-table-container">
+
+      {glucoseData?.length > 0 ? 
+
       <table id="glucose-table">
         <thead>
           <tr id="glucose-table-header-container">
@@ -70,17 +74,18 @@ function Glucose() {
               </th>
             </tr>
           ))}
-          {glucoseData?.length ===0 && <div id="no-glucose-data">You don't have any glucose levels yet ...</div>}
 
-        </tbody>
+        </tbody> 
 
+      </table>
+      : <div id="no-glucose-data">You don't have any glucose levels yet. Add some now!</div> }
         <div id="bottom-button-container">
 
           <OpenModalButton modalComponent={<AddGlucoseModal />} buttonText='Add a new glucose level' className='add-glucose-modal' />
         </div>
-      </table>
 
-
+      
+    </div>
 
 
     </div>

@@ -34,7 +34,7 @@ function Appointments() {
 
       <div id="appointments-container">
         <div id="appointments-grid-container">
-          {userAppointmentsData?.length > 0 && userAppointmentsData?.map((a, key) => (
+          {userAppointmentsData?.length > 0 ? userAppointmentsData?.map((a, key) => (
             <div key={key} className="a-card-container">
               <p className='a-provider'>{a?.provider.name}</p>
               <p className='a-specialty'>{a?.provider.specialty}</p>
@@ -53,8 +53,10 @@ function Appointments() {
 
               </div>
             </div>
-          ))}
-          <OpenModalButton className='a-card-container new-appt-button' modalComponent={<AddNewApptModal />} buttonText="Add new appointment" />
+          
+          )) : <div className='a-card-container'id="no-appts-yet-text"> You have not added any appointments yet. Add some now! </div>}
+        
+          <OpenModalButton className='a-card-container new-appt-button' modalComponent={<AddNewApptModal />} buttonHTML={<div id='new-appt-button'>Add new appointment<span className="material-symbols-outlined add-appt-icon">add</span> </div>} />
             
         </div>
 
