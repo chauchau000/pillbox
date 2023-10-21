@@ -102,8 +102,6 @@ function LoginFormPage() {
           <p>Don't have an account here?</p> 
           <p> Sign up here!</p>
           <Link className='login-signup' to='/signup'>Sign up</Link>
-
-
         </div>
       </div>
       <div id="right-side">

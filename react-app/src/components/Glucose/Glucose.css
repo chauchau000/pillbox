@@ -5,9 +5,9 @@
     box-sizing: border-box;
     padding: 20px;
     font-family: 'Poppins', sans-serif;
-    color: rgba(35, 35, 35, 0.893);
+    /* color: rgba(35, 35, 35, 0.893); */
     overflow-y: scroll;
-
+    background-color: #1aacacbb;
 }
 
 #glucose-chart-container {
@@ -17,6 +17,7 @@
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 10px;
+    background-color: white;
 
 }
 
@@ -26,6 +27,14 @@
     color: rgba(0, 0, 0, 0.302)
 }
 
+#glucose-table-container {
+    margin-top: 20px;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: white;
+}
 #glucose-table {
     /* border: 3px solid black; */
     border-radius: 20px;
@@ -34,8 +43,8 @@
     flex-direction: column;
     /* border: 1px solid black; */
     font-size: 16px;
-    padding: 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 
 }
 
@@ -110,4 +119,9 @@
 #bottom-button-container {
     display: flex;
     flex-direction: row-reverse;
+}
+
+#no-glucose-data {
+    font-size: 25px;
+    padding: 20px;
 }

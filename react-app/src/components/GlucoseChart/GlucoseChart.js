@@ -76,7 +76,8 @@ function GlucoseChart({ dates, levels }) {
                 return '<div class="arrow_box">' +
                     '<span>' + series[seriesIndex][dataPointIndex] + '</span>' +
                     '</div>'
-            }
+            },
+
         },
         annotations: {
             yaxis: [

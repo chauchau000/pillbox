@@ -52,7 +52,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    grid-gap: 6px;
+    /* grid-gap: 6px; */
     justify-items: start;
     align-items: start;
     grid-auto-flow: row;
@@ -64,9 +64,9 @@
 .calendar-single-day {
     height: 100%;
     width: 100%;
-    border: 2px solid #EEEEEE;
+    border: 1px solid #EEEEEE;
     padding: 10px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
 }
 
 .same-month {

@@ -16,7 +16,7 @@
     padding: 20px;
     font-family: 'Poppins', sans-serif;
     overflow-y: scroll;
-
+    background-color: #1aacacbb;
 
 }
 
@@ -24,21 +24,23 @@
     width: 100%;
     height: 70vh;
     margin-bottom: 20px;
-}
+    background-color: white;
+    border-radius: 20px;
 
+}
 
 #appointments-container {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 20px;
+    background-color: white;
 }
 
 #appointments-grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(3, fit-content);
     grid-gap: 12px 12px;
     padding: 20px;
-
 }
 
 .a-card-container {
@@ -46,23 +48,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px solid black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 20px;
     padding: 30px;
-    height: fit-content;
+    height: 100%;
 }
 
 .a-provider {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.1rem;
     margin-bottom: 2px;
 }
 
 .a-specialty {
     margin-bottom: 2px;
 }
+
 .a-phone {
-    font-size: 15px;
+    font-size: 0.85rem;
     margin-bottom: 18px;
 }
 
@@ -73,9 +76,28 @@
 }
 
 .new-appt-button {
-    background-color: rgba(12, 127, 12, 0.581);
-    text-align: center;
+    /* background-color: #1AACAC; */
+    /* background-color: #352fd9f0; */
+
+    background-color: #2E97A7;
+    /* background-color: #176B87; */
+
+    color: white;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     cursor: pointer;
+    text-align: center;
+    border-radius: 20px;
+
+
+}
+
+#new-appt-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .appt-edit-delete-container {
@@ -85,13 +107,23 @@
     align-items: center;
     margin-top: 10px;
     /* border: 3px solid black; */
-    
+
 }
 
-.appt-edit>.material-symbols-outlined, .appt-delete>.material-symbols-outlined {
+.appt-edit>.material-symbols-outlined,
+.appt-delete>.material-symbols-outlined {
     font-size: 30px;
 }
 
 .material-symbols-outlined:hover {
     cursor: pointer;
+}
+
+.add-appt-icon {
+    padding-top: 10px;
+    font-size: 35px
+}
+
+#no-appts-yet-text {
+    text-align: center;
 }

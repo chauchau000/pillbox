@@ -2,7 +2,7 @@ import React from 'react'
 import './LoginImage.css'
 import anime from 'animejs'
 
-const GRID_WIDTH = 8;
+const GRID_WIDTH = 13;
 const GRID_HEIGHT = 5;
 
 function LoginImage() {
@@ -39,7 +39,7 @@ function LoginImage() {
                     data-index={index}
                     key={`${i}-${j}`}
 
-                    onMouseOver={handlePillClick}
+                    onClick={handlePillClick}
                 >
                     <span className="material-symbols-outlined white-icon"
                         data-index={index}

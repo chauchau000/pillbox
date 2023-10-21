@@ -5,22 +5,24 @@
     display: flex;
     font-family: 'Poppins', sans-serif;
     background-color: white;
-}
-
-#left-side {
-    margin: 50px 0 0 0;
-    width: 50vw;
+    width: 100%;
     height: 100%;
-    padding: 0;
 }
 
+/* #left-side {
+    width: 50%;
+    height: fit-content;
+    padding: 50px 0 0 0;
+    overflow-y: scroll;
+ */
 
 #right-side {
     height: 100%;
-    width: 50vw;
+    width: 50%;
     margin: 0;
     /* border: 1px solid black; */
     background-color: #2E97A7;
+
     
 }
 
@@ -39,7 +41,7 @@
     font-size: 72px;
     font-weight: 700;
     letter-spacing: 16px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .login-label {
@@ -114,11 +116,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .login-signup {
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 10px;
     color: white;
     font-size: 16px;
