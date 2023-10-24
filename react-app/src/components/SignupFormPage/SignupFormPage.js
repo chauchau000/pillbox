@@ -43,7 +43,7 @@ function SignupFormPage() {
       return
     }
 
-    const data = await dispatch(signUp(first_name, last_name, dob, email, password));
+    await dispatch(signUp(first_name, last_name, dob, email, password));
     setErrors({})
     setHasSubmitted(false);
 

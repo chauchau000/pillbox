@@ -2,8 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import './MedChart.css'
 
-const GRID_WIDTH = 3;
-const GRID_HEIGHT = 7;
+// const GRID_WIDTH = 3;
+// const GRID_HEIGHT = 7;
 
 function MedChart() {
     const amMeds = useSelector(state => state.session.am)

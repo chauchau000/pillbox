@@ -19,6 +19,8 @@ function HomePage() {
   const user = useSelector(state => state.session.user)
   const userMeds = useSelector(state => state.session.meds)
 
+
+
   const handleActive = async (med_id) => {
     const res = await dispatch(flipActive(med_id))
 
@@ -27,7 +29,6 @@ function HomePage() {
     } else {
       console.log('Something went wrong with active flip')
     }
-
   }
 
   useEffect(() => {
@@ -61,7 +62,6 @@ function HomePage() {
                 </tr>
               </thead>
               <tbody>
-
                 {userMeds?.map((med, index) =>
                 (
                   <tr key={index} className='med-item-container'>

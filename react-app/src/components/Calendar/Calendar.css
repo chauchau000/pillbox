@@ -59,6 +59,7 @@
     align-content: space-evenly;
     justify-content: space-evenly;
     padding: 5px;
+    border-radius: 20px;
 }
 
 .calendar-single-day {
@@ -75,6 +76,53 @@
 
 .diff-month {
     color: #7a7373a5
+}
+
+/* top-left corner */
+#dayidx-0 {
+    border-top: 2px solid #EEEEEE;
+    border-left: 2px solid #EEEEEE;
+    border-radius: 20px 0 0 0;
+}
+
+/* top-right corner */
+#dayidx-6 {
+    border-top: 2px solid #EEEEEE;
+    border-right: 2px solid #EEEEEE;
+    border-radius: 0px 20px 0 0;
+}
+
+/* bottom-left corner */
+#dayidx-28 {
+    border-left: 2px solid #EEEEEE;
+    border-bottom: 2px solid #EEEEEE;
+    border-radius: 0px 0px 0 20px;
+}
+
+/* bottom-right corner */
+#dayidx-34 {
+    border-right: 2px solid #EEEEEE;
+    border-bottom: 2px solid #EEEEEE;
+    border-radius: 0px 0px 20px 0px;
+}
+
+/* top-row */
+#dayidx-1, #dayidx-2, #dayidx-3, #dayidx-4, #dayidx-5, #dayidx-6 {
+    border-top: 2px solid #EEEEEE;
+}
+
+/* bottom-row */
+#dayidx-29, #dayidx-30, #dayidx-31, #dayidx-32, #dayidx-33, #dayidx-34 {
+    border-bottom: 2px solid #EEEEEE;
+}
+
+/* left-column */
+#dayidx-7, #dayidx-14, #dayidx-21 {
+    border-left: 2px solid #EEEEEE;
+}
+
+#dayidx-13, #dayidx-20, #dayidx-27 {
+    border-right: 2px solid #EEEEEE;
 }
 
 .appt-div {
