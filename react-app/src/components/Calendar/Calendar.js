@@ -48,7 +48,10 @@ function Calendar() {
             </div>
             <div id="calendar-grid">
                 {totalDates?.map((day, key) => (
-                    <div className={day.getMonth() === currentDate.getMonth() ? "calendar-single-day same-month" : "calendar-single-day diff-month"} key={key}>
+                    <div className={day.getMonth() === currentDate.getMonth() ? "calendar-single-day same-month" : "calendar-single-day diff-month"}
+                        key={key}
+                        id={`dayidx-${key}`}
+                        >
                         {day.getDate()}
                         {apptArray?.map((a, key) => (
                             <>
@@ -57,7 +60,7 @@ function Calendar() {
                                         buttonHTML={
                                             <div className="appt-div">
                                                 <p>{a.provider.name}</p>
-                                                <p>{format(a.dateObj, "h:mm aa")}</p>
+                                                <p>{format(a.dateObj, "h:mm aaa")}</p>
                                             </div>
                                         }
                                         className='calendar-appt-edit'
