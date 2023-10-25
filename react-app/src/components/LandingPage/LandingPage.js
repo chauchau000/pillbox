@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useSelector} from 'react'
+import { Redirect } from 'react-router-dom'
 import './LandingPage.css'
 import { Link } from 'react-router-dom'
 import PillGrid from '../PillGrid/PillGrid'
 
 
 function LandingPage() {
-
 
     return (
         <div className="landing-page-container">
