@@ -31,7 +31,7 @@ function Navigation({ isLoaded }) {
 			{isLoaded && (
 				<>
 					<NavLink exact to="/home" className='nav-item'>
-						<span id='nav-icon' className="material-symbols-outlined">
+						<span className="material-symbols-outlined nav-icon">
 							pill
 						</span>
 						<p className="nav-item-text">
@@ -39,7 +39,7 @@ function Navigation({ isLoaded }) {
 						</p>
 					</NavLink>
 					<NavLink exact to="/appointments" className='nav-item'>
-						<span id='nav-icon' className="material-symbols-outlined">
+						<span className="material-symbols-outlined nav-icon">
 							calendar_month
 						</span>
 						<p className="nav-item-text">
@@ -47,7 +47,7 @@ function Navigation({ isLoaded }) {
 						</p>
 					</NavLink>
 					<NavLink exact to="/blood-glucose" className='nav-item'>
-						<span className="material-symbols-outlined" id='nav-icon'>
+						<span className="material-symbols-outlined nav-icon">
 							water_drop
 						</span>
 						<p className="nav-item-text">
