@@ -117,8 +117,10 @@
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #1AACAC;
-
+    cursor: pointer;
 }
+
+
 
 .section-right {
     margin-left: 5px;

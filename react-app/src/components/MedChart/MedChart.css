@@ -90,6 +90,10 @@
     margin-top: 5px;
 }
 
+#morning-icon, #noon-icon, #evening-icon, #bedtime-icon {
+    cursor: default
+}
+
 
 
 .med-icon-div,
