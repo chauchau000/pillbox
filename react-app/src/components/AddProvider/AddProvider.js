@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createProvider, fetchAllProviders } from '../../store/providers';
@@ -19,13 +19,28 @@ function AddProvider() {
 
   const { closeModal } = useModal();
 
+  const autoCompleteRef = useRef();
+  const inputRef = useRef()
+
+  const options = {
+    componentRestrictions: { country: "us" },
+    fields: ["address_components", "geometry", "name"]
+  };
+
+  useEffect(() => {
+    autoCompleteRef.current = new window.google.maps.places.Autocomplete(
+      inputRef.current,
+      options
+    );
+  }, []);
+
   const validatePhoneNumber = (input) => {
-    const pattern = /^\d{3}-\d{3}-\d{4}$/;  
-     if (pattern.test(input)) {
+    const pattern = /^\d{3}-\d{3}-\d{4}$/;
+    if (pattern.test(input)) {
       return true
-     } else {
+    } else {
       return false
-     }
+    }
   }
 
 
@@ -86,7 +101,9 @@ function AddProvider() {
             className='add-provider-input'
             placeholder="Name"
             value={name}
-            onChange={(e) => { setName(e.target.value) }} />
+            onChange={(e) => { setName(e.target.value) }} 
+            ref={inputRef}
+            />
 
           {hasSubmitted && errors.name && <p className='errors'>{errors.name}</p>}
 
