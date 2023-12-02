@@ -19,20 +19,20 @@ function AddProvider() {
 
   const { closeModal } = useModal();
 
-  const autoCompleteRef = useRef();
-  const inputRef = useRef()
+  // const autoCompleteRef = useRef();
+  // const inputRef = useRef()
 
-  const options = {
-    componentRestrictions: { country: "us" },
-    fields: ["address_components", "geometry", "name"]
-  };
+  // const options = {
+  //   componentRestrictions: { country: "us" },
+  //   fields: ["address_components", "geometry", "name"]
+  // };
 
-  useEffect(() => {
-    autoCompleteRef.current = new window.google.maps.places.Autocomplete(
-      inputRef.current,
-      options
-    );
-  }, []);
+  // useEffect(() => {
+  //   autoCompleteRef.current = new window.google.maps.places.Autocomplete(
+  //     inputRef.current,
+  //     options
+  //   );
+  // }, []);
 
   const validatePhoneNumber = (input) => {
     const pattern = /^\d{3}-\d{3}-\d{4}$/;
@@ -102,7 +102,7 @@ function AddProvider() {
             placeholder="Name"
             value={name}
             onChange={(e) => { setName(e.target.value) }} 
-            ref={inputRef}
+            // ref={inputRef}
             />
 
           {hasSubmitted && errors.name && <p className='errors'>{errors.name}</p>}
