@@ -47,7 +47,7 @@ function LoginFormPage() {
 
   const demoLogin = async (e) => {
     setEmail('demo@aa.io');
-    setPassword('password')
+    setPassword('AppAcademy1')
   }
 
 
