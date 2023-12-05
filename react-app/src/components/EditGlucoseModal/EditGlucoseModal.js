@@ -31,7 +31,7 @@ function EditGlucoseModal({glucose}) {
     const data = await dispatch(editGlucose(glucose.id, newGlucose));
 
     if (data.errors) {
-      console.log(data)
+      // console.log(data)
       setErrors(data.errors);
     } else {
       dispatch(fetchGlucose())

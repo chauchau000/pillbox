@@ -27,7 +27,7 @@ function HomePage() {
     if (res.ok) {
       await dispatch(fetchUserMeds())
     } else {
-      console.log('Something went wrong with active flip')
+      //console.log('Something went wrong with active flip')
     }
   }
 
