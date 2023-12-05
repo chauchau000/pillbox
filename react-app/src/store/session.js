@@ -355,7 +355,7 @@ export const createAppt = (provider_id, appt) => async dispatch => {
 
 	if (res.ok) {
 		const data = await res.json();
-		console.log('User appt created')
+		// console.log('User appt created')
 		return data
 	} else {
 		const errors = await res.json();
@@ -412,11 +412,10 @@ export const createGlucose = (date,time,level,notes) => async (dispatch) => {
 
 	if (res.ok) {
 		const data = await res.json();
-		console.log('Glucose level created')
 		return data
 	} else {
 		const errors = await res.json();
-		console.log(errors)
+		// console.log(errors)
 		return errors;
 	}
 }
