@@ -7,17 +7,21 @@
 
 
 <h3>Login Page</h3>
-![Screenshot 2024-02-06 at 6 15 03 PM](https://github.com/chauchau000/pillbox/assets/117422078/dc7918ba-a58d-46a3-9572-eb67456c7ce7)
+
+![Screenshot 2024-02-06 at 6 15 03 PM](https://github.com/chauchau000/pillbox/assets/117422078/e705af45-dcc5-41e6-a365-1c6328590c6c)
 
 <h3>Medication Home Page</h3>
-![Screenshot 2024-02-06 at 6 14 40 PM](https://github.com/chauchau000/pillbox/assets/117422078/02cd5b05-28e4-4fac-8334-efe6df1fc68f)
+
+![Screenshot 2024-02-06 at 6 14 40 PM](https://github.com/chauchau000/pillbox/assets/117422078/c1549a04-0cfb-4a4c-bfb0-0e31d95bba91)
 
 <h3>Glucose Chart</h3>
-![Screenshot 2024-02-06 at 6 14 54 PM](https://github.com/chauchau000/pillbox/assets/117422078/61d97365-1eb6-4ee4-9693-eaa9e7e40059)
+
+![Screenshot 2024-02-06 at 6 14 54 PM](https://github.com/chauchau000/pillbox/assets/117422078/639ec494-5422-4318-8e02-10ff60476071)
+
 
 <h3>Appointment Calendar</h3>
-![Screenshot 2024-02-06 at 6 14 54 PM](https://github.com/chauchau000/pillbox/assets/117422078/5f00f1dc-e92a-4336-b123-f7228df68988)
 
+![Screenshot 2024-02-06 at 6 14 47 PM](https://github.com/chauchau000/pillbox/assets/117422078/abd80077-f2ed-4ca7-bec4-02d2b0a000fc)
 
 
 ### Getting Started
