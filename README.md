@@ -6,7 +6,7 @@ Here at pillbox, our mission is to help you keep track of your medications, prov
 
 Users will be able to add their medications, providers, appointments, glucose log, and pharmacies in one centralized location. The app will simplify the user's medication usage, breaking down which medications should be taken when. The app will organize the user's medication list in simple website designed for intuitive use.
 
-The app will also keep track of all the user's appointments in a calendar and send emails reminder to the user when an appointment is coming up. 
+The app will also keep track of all the user's appointments in a calendar. 
 
 
 ## Features
