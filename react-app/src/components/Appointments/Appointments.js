@@ -44,6 +44,7 @@ function Appointments() {
       </div>
 
       <div id="appointments-container">
+        <p id="appointment-header">Future Appointments:</p>
         <div id="appointments-grid-container">
           {apptArray?.length > 0 ? apptArray?.map((a, key) => (
             <div key={key} className="a-card-container">

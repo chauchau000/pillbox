@@ -30,17 +30,6 @@ function Calendar() {
 
     const totalDates = eachDayOfInterval({ start: firstDay, end: lastDay })
 
-    const getRow = (key) => {
-        if (0 > key && key <=6 ) {
-            return "top-row"
-        } else if (key > 28 && key <= 34) {
-            return "bottom-row"
-        } else if (key % 7 === 0) {
-            return "left-column"
-        } else if (key % 7 === 6) {
-            return "right-column"
-        }
-    }
     return (
         <div id='whole-calendar-container'>
             <div id="calendar-header">
