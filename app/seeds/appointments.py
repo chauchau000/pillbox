@@ -1,45 +1,58 @@
 from app.models import db, Appointment, environment, SCHEMA
 from sqlalchemy.sql import text
 import datetime
-
+from random import randint
 
 
 
 # Adds a demo user, you can add other users here if you want
 def seed_appointments():
-    appt1 = Appointment(
-        user_id=1, provider_id=1, date=datetime.date(2023,12,12), time=datetime.time(10,0))    
-    appt2 = Appointment(
-        user_id=1, provider_id=2, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
-    appt3 = Appointment(
-        user_id=1, provider_id=5, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
+    startDate = datetime.date(2024,2,1)
 
-    db.session.add(appt1)
-    db.session.add(appt2)
-    db.session.add(appt3)
-
-    appt4 = Appointment(
-        user_id=2, provider_id=2, date=datetime.date(2023,12,12), time=datetime.time(10,0))     
-    appt5 = Appointment(
-        user_id=2, provider_id=2, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
-    appt6 = Appointment(
-        user_id=2, provider_id=5, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
+    for x in range(100):
+        for user_id in range(1,3): 
+                appt = Appointment(
+                    user_id = user_id,
+                    provider_id = randint(1, 5), 
+                    date = startDate + datetime.timedelta(days=randint(1, 200)),
+                    time=datetime.time(10,0)
+                )
+                db.session.add(appt)
 
 
-    db.session.add(appt4)
-    db.session.add(appt5)
-    db.session.add(appt6)
+    # appt1 = Appointment(
+    #     user_id=1, provider_id=1, date=datetime.date(2023,12,12), time=datetime.time(10,0))    
+    # appt2 = Appointment(
+    #     user_id=1, provider_id=2, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
+    # appt3 = Appointment(
+    #     user_id=1, provider_id=5, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
 
-    appt7 = Appointment(
-        user_id=3, provider_id=4, date=datetime.date(2023,12,12), time=datetime.time(10,0))    
-    appt8 = Appointment(
-        user_id=3, provider_id=1, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
-    appt9 = Appointment(
-        user_id=3, provider_id=1, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
+    # db.session.add(appt1)
+    # db.session.add(appt2)
+    # db.session.add(appt3)
 
-    db.session.add(appt7)
-    db.session.add(appt8)
-    db.session.add(appt9)
+    # appt4 = Appointment(
+    #     user_id=2, provider_id=2, date=datetime.date(2023,12,12), time=datetime.time(10,0))     
+    # appt5 = Appointment(
+    #     user_id=2, provider_id=2, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
+    # appt6 = Appointment(
+    #     user_id=2, provider_id=5, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
+
+
+    # db.session.add(appt4)
+    # db.session.add(appt5)
+    # db.session.add(appt6)
+
+    # appt7 = Appointment(
+    #     user_id=3, provider_id=4, date=datetime.date(2023,12,12), time=datetime.time(10,0))    
+    # appt8 = Appointment(
+    #     user_id=3, provider_id=1, date=datetime.date(2024,1,2), time=datetime.time(10,0)) 
+    # appt9 = Appointment(
+    #     user_id=3, provider_id=1, date=datetime.date(2023,11,5), time=datetime.time(10,0)) 
+
+    # db.session.add(appt7)
+    # db.session.add(appt8)
+    # db.session.add(appt9)
 
     db.session.commit()
 
