@@ -33,18 +33,16 @@ function GlucoseChart({ dates, levels }) {
         },
         xaxis: {
             categories: dates,
+            tickAmount: 5,
             axisBorder: {
                 show: true
             },
-            tickAmount: 20,
             labels: {
                 formatter: function (value) {
                     // Format the value to display only the month and date
                     const date = new Date(value);
-                    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric'});
                 },
-                offsetY: 8,
-
             },
 
         },
@@ -76,7 +74,7 @@ function GlucoseChart({ dates, levels }) {
                 return '<div class="arrow_box">' +
                     '<span>' + series[seriesIndex][dataPointIndex] + '</span>' +
                     '</div>'
-            },
+            }
 
         },
         annotations: {
