@@ -47,7 +47,7 @@
 
 }
 
-#calendar-grid {
+#calendar-grid-5 {
     height: 83%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -60,6 +60,21 @@
     justify-content: space-evenly;
     padding: 5px;
     border-radius: 20px;
+}
+
+#calendar-grid-6 {
+    height: 83%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    /* grid-gap: 6px; */
+    justify-items: start;
+    align-items: start;
+    grid-auto-flow: row;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    padding: 5px;
+    /* border-radius: 20px; */
 }
 
 .calendar-single-day {
@@ -79,49 +94,54 @@
 }
 
 /* top-left corner */
-#dayidx-0 {
+#dayidx-0-5, #dayidx-0-6 {
     border-top: 2px solid #EEEEEE;
     border-left: 2px solid #EEEEEE;
     border-radius: 20px 0 0 0;
 }
 
 /* top-right corner */
-#dayidx-6 {
+#dayidx-6-5, #dayidx-6-6 {
     border-top: 2px solid #EEEEEE;
     border-right: 2px solid #EEEEEE;
     border-radius: 0px 20px 0 0;
 }
 
 /* bottom-left corner */
-#dayidx-28 {
+#dayidx-28-5, #dayidx-35-6 {
     border-left: 2px solid #EEEEEE;
     border-bottom: 2px solid #EEEEEE;
     border-radius: 0px 0px 0 20px;
 }
 
 /* bottom-right corner */
-#dayidx-34 {
+#dayidx-34-5, #dayidx-41-5 {
     border-right: 2px solid #EEEEEE;
     border-bottom: 2px solid #EEEEEE;
     border-radius: 0px 0px 20px 0px;
 }
 
 /* top-row */
-#dayidx-1, #dayidx-2, #dayidx-3, #dayidx-4, #dayidx-5, #dayidx-6 {
+#dayidx-1-5, #dayidx-2-5, #dayidx-3-5, #dayidx-4-5, #dayidx-5-5, #dayidx-6-5, 
+#dayidx-1-6, #dayidx-2-6, #dayidx-3-6, #dayidx-4-6, #dayidx-5-6, #dayidx-6-6 {
     border-top: 2px solid #EEEEEE;
 }
 
 /* bottom-row */
-#dayidx-29, #dayidx-30, #dayidx-31, #dayidx-32, #dayidx-33, #dayidx-34 {
+#dayidx-29-5, #dayidx-30-5, #dayidx-31-5, #dayidx-32-5, #dayidx-33-5, #dayidx-34-5,
+#dayidx-36-6, #dayidx-37-6, #dayidx-38-6, #dayidx-39-6, #dayidx-40-6, #dayidx-41-6 {
     border-bottom: 2px solid #EEEEEE;
 }
 
 /* left-column */
-#dayidx-7, #dayidx-14, #dayidx-21 {
+#dayidx-7-5, #dayidx-14-5, #dayidx-21-5,
+#dayidx-7-6, #dayidx-14-6, #dayidx-21-6, #dayidx-28-6 {
     border-left: 2px solid #EEEEEE;
 }
 
-#dayidx-13, #dayidx-20, #dayidx-27 {
+/* right-column */
+#dayidx-13-5, #dayidx-20-5, #dayidx-27-5,
+#dayidx-13-6, #dayidx-20-6, #dayidx-27-6, #dayidx-34-6 {
     border-right: 2px solid #EEEEEE;
 }
 

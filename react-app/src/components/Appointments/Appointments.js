@@ -7,7 +7,7 @@ import OpenModalButton from '../OpenModalButton/OpenModalButton';
 import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal';
 import EditApptModal from '../EditApptModal/EditApptModal';
 import Calendar from '../Calendar/Calendar';
-import { format } from 'date-fns'
+import { format, isAfter } from 'date-fns'
 
 import './Appointments.css';
 // import { format } from 'date-fns';
@@ -17,13 +17,17 @@ function Appointments() {
   const dispatch = useDispatch();
   const userAppointmentsData = useSelector(state => state.session.appointments);
 
-  const apptArray = userAppointmentsData?.map((a) => {
+  const apptArray = userAppointmentsData?.filter((a) => {
+    const today = new Date();
+    const apptDate = new Date(a.date+'T00:00:00');
+
+    return isAfter(apptDate,today)
+  }).map(a => {
     return {
       ...a,
       dateObj: new Date(a.date + "T" + a.time)
     }
-  })
-
+  }).slice(0,17);
 
 
 
