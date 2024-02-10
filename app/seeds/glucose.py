@@ -6,9 +6,9 @@ import random
 
 def seed_glucose():
     # user1
+    date = datetime(2024,2,1)
 
     for x in range(45):
-        date = datetime(2023, 9, 1)
         glu1 = Glucose(
             level=random.randint(100, 250),
             user_id=1,
@@ -30,7 +30,7 @@ def seed_glucose():
             user_id=2,
             date=date + timedelta(days=x),
             time=time(20, 0),
-            notes="Hambuger and fries",
+            notes="Hamburger and fries",
         )
 
         glu4 = Glucose(
@@ -38,7 +38,7 @@ def seed_glucose():
             user_id=2,
             date=date + timedelta(days=x),
             time=time(8, 0),
-            notes="Ate a banana",
+            notes="Ate an apple",
         )
 
         glu5 = Glucose(
@@ -46,7 +46,7 @@ def seed_glucose():
             user_id=2,
             date=date + timedelta(days=x),
             time=time(12, 0),
-            notes="Ate a large lunch",
+            notes="Salad with honey mustard dressing",
         )
 
         glu6 = Glucose(
@@ -54,7 +54,7 @@ def seed_glucose():
             user_id=1,
             date=date + timedelta(days=x),
             time=time(20, 0),
-            notes="Hambuger and fries",
+            notes="Combo pizza slice",
         )
         db.session.add(glu1)
         db.session.add(glu2)

@@ -6,15 +6,20 @@ import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal'
 import EditGlucoseModal from '../EditGlucoseModal/EditGlucoseModal'
 import AddGlucoseModal from '../AddGlucoseModal/AddGlucoseModal'
 import GlucoseChart from '../GlucoseChart/GlucoseChart'
-import { format } from 'date-fns'
+import { format, isBefore } from 'date-fns'
 import './Glucose.css'
 
 
 function Glucose() {
   const dispatch = useDispatch()
-  const glucoseData = useSelector(state => state.session.glucose)
+  const glucoseData = useSelector(state => state.session.glucose);
 
-  const glucoseArray = glucoseData?.map((a) => {
+  const glucoseArray = glucoseData?.filter((a) => {
+    const today = new Date();
+    const glucoseDate = new Date(a.date+'T00:00:00');
+
+    return isBefore(glucoseDate,today)
+  }).map(a => {
     return {
       ...a,
       dateObj: new Date(a.date + "T" + a.time)
