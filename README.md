@@ -58,7 +58,7 @@ npm install
 npm start
 ```
 
-6. Create your own account and start investing!
+6. Create your own account and start your medication inventory!
 
 ### Application Architecture
 
